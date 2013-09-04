@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <object type="WebSite.Controllers.HomeController, WebSite" singleton="false" >
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
+    <property name="CategoryManager" ref="Manager.Category"/>
+    <property name="ForumManager" ref="Manager.Forum"/>
+  </object>
+
+  <object type="WebSite.Controllers.UserInfoController, WebSite" singleton="false" >
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
+  </object>
+
+  <object type="WebSite.Controllers.ForumController, WebSite" singleton="false" >
+    <property name="ForumManager" ref="Manager.Forum"/>
+  </object>
+
+  <object type="WebSite.Controllers.CategoryController, WebSite" singleton="false" >
+    <property name="CategoryManager" ref="Manager.Category"/>
+    <property name="ForumManager" ref="Manager.Forum"/>
+    <property name="ArticleManager" ref="Manager.Article"/>
+  </object>
+
+  <object type="WebSite.Controllers.ArticleController, WebSite" singleton="false" >
+    <property name="ArticleManager" ref="Manager.Article"/>
+    <property name="CategoryManager" ref="Manager.Category"/>
+    <property name="ForumManager" ref="Manager.Forum"/>
+  </object>
+
+  <object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />
+
+</objects>

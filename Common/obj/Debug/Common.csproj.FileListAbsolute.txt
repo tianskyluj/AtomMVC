@@ -1,0 +1,5 @@
+F:\项目\Atom\WeCompanySite\Common\bin\Debug\Common.dll
+F:\项目\Atom\WeCompanySite\Common\bin\Debug\Common.pdb
+F:\项目\Atom\WeCompanySite\Common\obj\Debug\ResolveAssemblyReference.cache
+F:\项目\Atom\WeCompanySite\Common\obj\Debug\Common.dll
+F:\项目\Atom\WeCompanySite\Common\obj\Debug\Common.pdb
