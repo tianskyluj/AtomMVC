@@ -4698,3 +4698,30 @@ QUERYSTRING:
    在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
    在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-04 16:54:25,171 [5] ERROR NHibernate.Cfg.Configuration [(null)] - Could not compile the mapping document: Domain.Forum.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: Domain.Forum.hbm.xml ---> NHibernate.DuplicateMappingException: Duplicate class/entity mapping Domain.Forum
+   在 NHibernate.Cfg.Mappings.AddClass(PersistentClass persistentClass)
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema)
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName)
+   --- 内部异常堆栈跟踪的结尾 ---
+2013-09-04 16:55:05,578 [13] ERROR NHibernate.Util.ReflectHelper [(null)] - Could not load type Domain.dateTime, Domain.
+System.TypeLoadException: 未能从程序集“Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“Domain.dateTime”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 System.Reflection.Assembly.GetType(String name, Boolean throwOnError)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError)
+2013-09-04 16:56:13,859 [5] ERROR NHibernate.Util.ReflectHelper [(null)] - Could not load type Domain.dateTime, Domain.
+System.TypeLoadException: 未能从程序集“Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“Domain.dateTime”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 System.Reflection.Assembly.GetType(String name, Boolean throwOnError)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError)
+2013-09-04 16:56:51,671 [14] ERROR NHibernate.Util.ReflectHelper [(null)] - Could not load type Domain.dateTime, Domain.
+System.TypeLoadException: 未能从程序集“Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“Domain.dateTime”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 System.Reflection.Assembly.GetType(String name, Boolean throwOnError)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError)

@@ -71,6 +71,7 @@
     <Compile Include="Implement\ForumRepository.cs" />
     <Compile Include="Implement\ArticleRepository.cs" />
     <Compile Include="Implement\CategoryRepository.cs" />
+    <Compile Include="Implement\SystemUserRepository.cs" />
     <Compile Include="IRepository`1.cs" />
     <Compile Include="IUserInfoRepository.cs" />
     <Compile Include="RepositoryBase`1.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="IForumRepository.cs" />
     <Compile Include="IArticleRepository.cs" />
     <Compile Include="ICategoryRepository.cs" />
+    <Compile Include="ISystemUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
