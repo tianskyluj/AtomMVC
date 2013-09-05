@@ -38,3 +38,6 @@ D:\我的文档\GitHub\AtomMVC\Service\bin\Debug\Common.pdb
 D:\我的文档\GitHub\AtomMVC\Service\obj\Debug\ResolveAssemblyReference.cache
 D:\我的文档\GitHub\AtomMVC\Service\obj\Debug\Service.dll
 D:\我的文档\GitHub\AtomMVC\Service\obj\Debug\Service.pdb
+D:\我的文档\GitHub\AtomMVC\Service\bin\Debug\Excel.dll
+D:\我的文档\GitHub\AtomMVC\Service\bin\Debug\COM.Excel.dll
+D:\我的文档\GitHub\AtomMVC\Service\bin\Debug\OpenSmtp.dll

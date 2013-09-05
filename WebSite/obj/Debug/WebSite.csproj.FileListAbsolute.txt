@@ -74,3 +74,6 @@ D:\我的文档\GitHub\AtomMVC\WebSite\obj\Debug\GenerateResource.read.1.tlog
 D:\我的文档\GitHub\AtomMVC\WebSite\obj\Debug\GenerateResource.write.1.tlog
 D:\我的文档\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.dll
 D:\我的文档\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.pdb
+D:\我的文档\GitHub\AtomMVC\WebSite\bin\Excel.dll
+D:\我的文档\GitHub\AtomMVC\WebSite\bin\COM.Excel.dll
+D:\我的文档\GitHub\AtomMVC\WebSite\bin\OpenSmtp.dll

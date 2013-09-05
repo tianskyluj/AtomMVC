@@ -15,5 +15,29 @@ namespace Service
         UserInfo Get(string account, string password);
 
         void Update(UserInfo entity, string password);
+
+        /// <summary>
+        /// 从session中获取登录用户资料
+        /// </summary>
+        /// <returns></returns>
+        UserInfo GetUserSession();
+
+        /// <summary>
+        /// 用户登录操作
+        /// </summary>
+        /// <returns></returns>
+        bool DoLogOn(UserInfo user);
+
+        /// <summary>
+        /// 判断是否登录
+        /// </summary>
+        /// <returns></returns>
+        bool IfLogOn();
+
+        /// <summary>
+        /// 登出
+        /// </summary>
+        /// <returns></returns>
+        void LogOut();
     }
 }

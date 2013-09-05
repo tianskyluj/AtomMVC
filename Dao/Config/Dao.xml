@@ -16,8 +16,8 @@
 	<object id="Repository.Article" type="Dao.Implement.ArticleRepository, Dao">
 		<property name="HibernateTemplate" ref="HibernateTemplate"/>
 	</object>
-
-	<object id="Repository.SystemUser" type="Dao.Implement.SystemUserRepository, Dao">
+	
+	<object id="Repository.GlobalSetting" type="Dao.Implement.GlobalSettingRepository, Dao">
 		<property name="HibernateTemplate" ref="HibernateTemplate"/>
 	</object>
 

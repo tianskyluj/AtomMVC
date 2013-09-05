@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\Controllers.xml" />
+    <Content Include="Config\GlobalSetting.xml" />
     <Content Include="Content\Logon.css" />
     <Content Include="easyui\easyloader.js" />
     <Content Include="easyui\jquery.easyui.min.js" />
@@ -679,6 +680,9 @@
     <Content Include="Images\user_top_l.en.gif" />
     <Content Include="Images\user_top_l.gif" />
     <Content Include="Images\user_top_r.gif" />
+    <Content Include="Scripts\Account\Index.js" />
+    <Content Include="Scripts\Home\Login.js" />
+    <Content Include="Scripts\System\Index.js" />
     <Content Include="Views\Article\Admin.aspx" />
     <Content Include="Views\Article\Get.aspx" />
     <Content Include="Views\Article\View.aspx" />
@@ -689,6 +693,14 @@
     <Content Include="Views\Home\Admin.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\LogOn.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\FooterControl.ascx" />
+    <Content Include="Views\Shared\HeadControl.ascx" />
+    <Content Include="Views\Shared\HeaderControl.ascx" />
+    <Content Include="Views\Shared\JsIncludeControl.ascx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\MessageControl.ascx" />
+    <Content Include="Views\Shared\SidebarControl.ascx" />
     <Content Include="Views\UserInfo\Index.aspx" />
     <Content Include="Views\UserInfo\View.aspx" />
     <Content Include="Views\Category\Index.aspx" />
@@ -728,9 +740,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="UserFiles\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{B3F29715-E925-4E56-9248-580F06C3BC11}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{A42D287A-8EF4-48F6-B14C-7F9CA834F786}</Project>
       <Name>Domain</Name>

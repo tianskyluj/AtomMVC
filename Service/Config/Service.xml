@@ -33,10 +33,10 @@
 		</property>
 	</object>
 
-	<object id="Manager.SystemUser" parent="BaseTransactionManager">
+	<object id="Manager.GlobalSetting" parent="BaseTransactionManager">
 		<property name="Target">
-			<object type="Service.Implement.SystemUserManager, Service">
-				<property name="CurrentRepository" ref="Repository.SystemUser"/>
+			<object type="Service.Implement.GlobalSettingManager, Service">
+				<property name="CurrentRepository" ref="Repository.GlobalSetting"/>
 			</object>
 		</property>
 	</object>

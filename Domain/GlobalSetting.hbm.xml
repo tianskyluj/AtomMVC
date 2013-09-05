@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Domain"
+                   namespace="Domain">
+
+  <class name="GlobalSetting" table="T_GlobalSetting">
+    <cache usage="read-write"/>
+    <id name="ID" type="Guid">
+      <column name="GlobalSettingID" index="PK_GlobalSettingInfo"/>
+      <generator class="assigned" />
+    </id>
+
+    <!--名称-->
+    <property name="CompanyName" type="string">
+      <column name="CompanyName" length="50" not-null="true"/>
+    </property>
+	  
+  </class>
+
+</hibernate-mapping>

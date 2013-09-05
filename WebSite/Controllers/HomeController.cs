@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Drawing.Imaging;
+using Domain;
 
 namespace WebSite.Controllers
 {
@@ -21,12 +22,18 @@ namespace WebSite.Controllers
 
         public IForumManager ForumManager { get; set; }
 
+        public IGlobalSettingManager GlobalSettingManager { get; set; }
+
         public ActionResult Index()
         {
             var list = this.ForumManager.LoadAllEnable();
             this.ViewData["ForumList"] = list;
-
-            return View();
+            GlobalSettingManager.SetGlobalCache();
+            ViewData["companyName"] = GlobalSettingManager.GetGlobalCache().CompanyName;
+            if (UserInfoManager.IfLogOn())
+                return View();
+            else
+                return View("LogOn");
         }
 
         public ActionResult ChangeLanguage(string language)
@@ -49,14 +56,39 @@ namespace WebSite.Controllers
 
         public ActionResult LogOn()
         {
+            GlobalSettingManager.SetGlobalCache();
+            ViewData["companyName"] = GlobalSettingManager.GetGlobalCache().CompanyName;
+            
             return View();
         }
 
-        public ActionResult LogOut()
+        /// <summary>
+        /// 用户登出
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult LoginOut()
         {
-            FormsAuthentication.SignOut();
-            return Redirect("/LogOn/");
+            UserInfoManager.LogOut();
+            return RedirectToAction("LogOn");
         }
+
+        /// <summary>
+        /// 点击登录操作
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult DoLogin(UserInfo userModel)
+        {
+            bool echo = UserInfoManager.DoLogOn(userModel);
+
+            return Content(echo ? "1" : "0");
+        }
+
+        //public ActionResult LogOut()
+        //{
+        //    FormsAuthentication.SignOut();
+        //    return Redirect("/LogOn/");
+        //}
 
         public ActionResult LogOnByAndPassword(string account, string password, string code)
         {

@@ -15,6 +15,61 @@ namespace Service.Implement
         }
 
         /// <summary>
+        /// 判断是否登录
+        /// </summary>
+        /// <returns></returns>
+        public bool IfLogOn()
+        {
+            if (Atom.Common.DataSession.getSessionValue("userInfo") != null)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// 登出
+        /// </summary>
+        /// <returns></returns>
+        public void LogOut()
+        {
+            Atom.Common.DataSession.destroySession();
+        }
+
+        /// <summary>
+        /// 将用户资料存储在session中
+        /// </summary>
+        /// <param name="user"></param>
+        public void SetUserSession(UserInfo user)
+        {
+            Atom.Common.DataSession.setSession("userInfo", user);
+        }
+
+        /// <summary>
+        /// 从session中获取登录用户资料
+        /// </summary>
+        /// <returns></returns>
+        public UserInfo GetUserSession()
+        {
+            return (UserInfo)Atom.Common.DataSession.getSessionValue("userInfo");
+        }
+
+        /// <summary>
+        /// 检测用户能否登录
+        /// </summary>
+        /// <returns></returns>
+        public bool DoLogOn(UserInfo user)
+        {
+            UserInfo entity = this.Get(user.Account, user.Password);
+            if (entity == null)
+                return false;
+            else
+            {
+                this.SetUserSession(entity);
+                return true;
+            }
+        }
+
+        /// <summary>
         /// 获取MD5值
         /// </summary>
         /// <param name="key">加密的字符串</param>

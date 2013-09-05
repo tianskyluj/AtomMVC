@@ -27,6 +27,8 @@ namespace WebSite
             base.Application_Start(sender, e);
 
             this.SetInitAccount();
+
+            this.SetGlobalSetting();
         }
 
         /// <summary>
@@ -47,10 +49,31 @@ namespace WebSite
                     Name = "管理员",
                     ID = Guid.NewGuid(),
                     CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
                     IsEnabled = true
                 };
 
                 manger.Save(user);
+            }
+        }
+
+        /// <summary>
+        /// 设置初始全局变量
+        /// </summary>
+        private void SetGlobalSetting()
+        {
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            IGlobalSettingManager manger = (IGlobalSettingManager)cxt.GetObject("Manager.GlobalSetting");
+
+            var global = manger.LoadAll().FirstOrDefault();
+            if (global == null)
+            {
+                global = new Domain.GlobalSetting
+                {
+                    ID = Guid.NewGuid(),
+                    CompanyName = "原子科技"
+                };
+                manger.Save(global);
             }
         }
 

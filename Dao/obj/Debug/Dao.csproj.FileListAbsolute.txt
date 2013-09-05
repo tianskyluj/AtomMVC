@@ -38,3 +38,6 @@ D:\我的文档\GitHub\AtomMVC\Dao\bin\Debug\Domain.pdb
 D:\我的文档\GitHub\AtomMVC\Dao\obj\Debug\ResolveAssemblyReference.cache
 D:\我的文档\GitHub\AtomMVC\Dao\obj\Debug\Dao.dll
 D:\我的文档\GitHub\AtomMVC\Dao\obj\Debug\Dao.pdb
+D:\我的文档\GitHub\AtomMVC\Dao\bin\Debug\Excel.dll
+D:\我的文档\GitHub\AtomMVC\Dao\bin\Debug\COM.Excel.dll
+D:\我的文档\GitHub\AtomMVC\Dao\bin\Debug\OpenSmtp.dll
