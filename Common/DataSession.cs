@@ -27,7 +27,7 @@ namespace Atom.Common
             object obj = null;
             try
             {
-                obj = HttpContext.Current.Session[Sessinname].ToString();
+                obj = HttpContext.Current.Session[Sessinname];
             }
             catch
             {

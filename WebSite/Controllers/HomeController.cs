@@ -26,12 +26,17 @@ namespace WebSite.Controllers
 
         public ActionResult Index()
         {
-            var list = this.ForumManager.LoadAllEnable();
-            this.ViewData["ForumList"] = list;
             GlobalSettingManager.SetGlobalCache();
             ViewData["companyName"] = GlobalSettingManager.GetGlobalCache().CompanyName;
             if (UserInfoManager.IfLogOn())
+            {
+                ViewData["name"] = UserInfoManager.GetUserSession().Name;
+                ViewData["userId"] = UserInfoManager.GetUserSession().ID.ToString();
+                string avatarString = UserInfoManager.GetUserAvatar();
+                ViewData["avatar"] = avatarString == "" ? "../../Upload/Avatar/DefaultAvatar.jpg" : avatarString;
+                ViewData["visible"] = UserInfoManager.GetUserSession().IsAdmin;
                 return View();
+            }
             else
                 return View("LogOn");
         }
@@ -56,9 +61,7 @@ namespace WebSite.Controllers
 
         public ActionResult LogOn()
         {
-            GlobalSettingManager.SetGlobalCache();
             ViewData["companyName"] = GlobalSettingManager.GetGlobalCache().CompanyName;
-            
             return View();
         }
 

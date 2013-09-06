@@ -12,6 +12,10 @@
 		<property name="UserInfoManager" ref="Manager.UserInfo"/>
 	</object>
 
+	<object type="WebSite.Controllers.AccountController, WebSite" singleton="false" >
+		<property name="UserInfoManager" ref="Manager.UserInfo"/>
+	</object>
+
 	<object type="WebSite.Controllers.ForumController, WebSite" singleton="false" >
 		<property name="ForumManager" ref="Manager.Forum"/>
 	</object>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Domain;
+using System.IO;
+using AtomOA.Common.Sys;
 
 namespace Service.Implement
 {
@@ -111,6 +113,48 @@ namespace Service.Implement
         {
             entity.Password = this.HashCode(entity.Account.ToUpper() + password + entity.CreateTime.ToLongDateString());
             base.Update(entity);
+        }
+
+        /// <summary>
+        /// 获取当前用户头像
+        /// </summary>
+        /// <returns></returns>
+        public string GetUserAvatar()
+        {
+            string fileUrl = Atom.Common.inc.getApplicationPath() + "/Upload/Avatar/" + this.GetUserSession().ID.ToString() + "_avatar.txt";
+            string avatarString = "";
+
+            StreamReader sr;
+            if (System.IO.File.Exists(SysHelper.GetPath(fileUrl)))
+            {
+                sr = System.IO.File.OpenText(SysHelper.GetPath(fileUrl));
+                avatarString = sr.ReadLine();
+                sr.Close();
+                sr.Dispose();
+            }
+
+            return avatarString;
+        }
+
+        /// <summary>
+        /// 获取指定用户头像
+        /// </summary>
+        /// <returns></returns>
+        public string GetUserAvatar(string userId)
+        {
+            string fileUrl = Atom.Common.inc.getApplicationPath() + "/Upload/Avatar/" + userId.Trim() + "_avatar.txt";
+            string avatarString = "";
+
+            StreamReader sr;
+            if (System.IO.File.Exists(SysHelper.GetPath(fileUrl)))
+            {
+                sr = System.IO.File.OpenText(SysHelper.GetPath(fileUrl));
+                avatarString = sr.ReadLine();
+                sr.Close();
+                sr.Dispose();
+            }
+
+            return avatarString;
         }
     }
 }

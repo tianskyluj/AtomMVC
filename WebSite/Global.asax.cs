@@ -50,7 +50,8 @@ namespace WebSite
                     ID = Guid.NewGuid(),
                     CreateTime = DateTime.Now,
                     UpdateTime = DateTime.Now,
-                    IsEnabled = true
+                    IsEnabled = true,
+                    IsAdmin = true
                 };
 
                 manger.Save(user);
