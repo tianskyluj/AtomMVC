@@ -17,7 +17,7 @@ namespace WebSite.Controllers
         public ActionResult Index()
         {
            this.ViewData["userInfo"] = UserInfoManager.GetUserSession();
-
+           this.ViewData["avatar"] = UserInfoManager.GetUserAvatar();
             return View();
         }
 
@@ -37,6 +37,43 @@ namespace WebSite.Controllers
             UserInfoManager.Update(initEntity);
             UserInfoManager.SetUserSession(initEntity);
             return Content("1");
+        }
+
+        /// <summary>
+        /// 上传头像
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult UploadAvatar(string avatar)
+        {
+            UserInfoManager.UploadAvatar(avatar);
+            return Content("1");
+        }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult UpdatePassword(string oldPassword, string newPassword, string newPasswordAgain)
+        {
+            #region 数据合法性验证
+            if (oldPassword.Trim() == string.Empty)
+                return Content("请输入新密码");
+            if (newPassword.Trim() == string.Empty)
+                return Content("请输入新密码");
+            if (newPasswordAgain.Trim() == string.Empty)
+                return Content("请再次输入新密码");
+            if (newPassword.Trim() != newPasswordAgain.Trim())
+                return Content("两次输入的新密码不一致，请重试");
+            if (!UserInfoManager.IsCorrectPassword(oldPassword.Trim()))
+            {
+                return Content("旧密码输入不正确");
+            }
+            #endregion
+            UserInfoManager.Update(UserInfoManager.GetUserSession(), newPassword.Trim());
+            return Content("1");
+            
         }
     }
 }

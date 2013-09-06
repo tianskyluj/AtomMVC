@@ -73,7 +73,7 @@
                                                 <div class="span6">
                                                     <div class="fileupload fileupload-new" data-provides="fileupload">
                                                         <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                                            <img id="avatarNow" src="../../assets/img/plugins/bootstrap-fileupload/no-image.png" alt="Selected image"/>
+                                                            <img id="avatarNow" src="<%= ViewData["avatar"] %>" alt="Selected image"/>
                                                         </div>
                                                         <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px;
                                                             max-height: 150px; line-height: 20px;">
@@ -85,7 +85,7 @@
                                                                 <input id="selectFile"  type="file"/>
                                                             </span> 
                                                             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
-                                                            <button id="UploadButton" class="btn btn-primary">
+                                                            <button id="UploadButton" class="btn btn-primary"  data-bind="click:UploadAvatar">
                                                                 上传图片
                                                             </button>
                                                         </div>
@@ -105,28 +105,28 @@
                                             <label class="control-label">
                                                 旧密码</label>
                                             <div class="controls">
-                                                <input ID="oldPassword_edit" TextMode="Password"  class ="input-xlarge"
-                                                    placeholder="请输入旧密码"/>
+                                                <input id="oldPassword_edit" type="password"  class ="input-xlarge"
+                                                    placeholder="请输入旧密码"   data-bind="value:oldPassword"/>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">
                                                 新密码</label>
                                             <div class="controls">
-                                                <input ID="newPassword_edit" TextMode="Password"  class="input-xlarge"
-                                                    placeholder="请输入新密码"/>
+                                                <input id="newPassword_edit"  type="password"  class="input-xlarge"
+                                                    placeholder="请输入新密码"  data-bind="value:newPassword"/>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">
                                                 再次输入新密码</label>
                                             <div class="controls">
-                                                <input ID="newPasswordAgain_edit" TextMode="Password"  class="input-xlarge"
-                                                    placeholder="请再次输入新密码"/>
+                                                <input id="newPasswordAgain_edit"  type="password"  class="input-xlarge"
+                                                    placeholder="请再次输入新密码" data-bind="value:newPasswordAgain"/>
                                             </div>
                                         </div>
                                         <div>
-                                            <button id="changePassword_confirm" class="btn btn-primary">
+                                            <button id="changePassword_confirm" class="btn btn-primary"  data-bind="click:UpdatePassword">
                                                 修改密码
                                             </button>
                                         </div>

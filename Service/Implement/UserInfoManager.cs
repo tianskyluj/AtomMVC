@@ -5,6 +5,7 @@ using System.Text;
 using Domain;
 using System.IO;
 using AtomOA.Common.Sys;
+using System.Web;
 
 namespace Service.Implement
 {
@@ -109,10 +110,41 @@ namespace Service.Implement
             return entity;
         }
 
+        /// <summary>
+        /// 判断提交的密码是否是当前用户的密码
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool IsCorrectPassword(string password)
+        {
+            if (this.GetUserSession().Password == this.HashCode(this.GetUserSession().Account.ToUpper() + password + this.GetUserSession().CreateTime.ToLongDateString()))
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// 更新密码
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="password"></param>
         public void Update(UserInfo entity, string password)
         {
             entity.Password = this.HashCode(entity.Account.ToUpper() + password + entity.CreateTime.ToLongDateString());
             base.Update(entity);
+        }
+
+        /// <summary>
+        /// 上传用户头像图片
+        /// </summary>
+        public void UploadAvatar(string avatar)
+        {
+            string fileUrl = Atom.Common.inc.getApplicationPath() + "/Upload/Avatar/" + this.GetUserSession().ID.ToString() + "_avatar.txt";
+            StreamWriter sw;
+            sw = File.CreateText(HttpContext.Current.Server.MapPath(fileUrl));
+            sw.Write(avatar);
+            sw.Close();
+            sw.Dispose();
         }
 
         /// <summary>
@@ -132,6 +164,8 @@ namespace Service.Implement
                 sr.Close();
                 sr.Dispose();
             }
+            if (avatarString == "")
+                avatarString = Atom.Common.inc.getApplicationPath() + "/Upload/Avatar/DefaultAvatar.jpg";
 
             return avatarString;
         }

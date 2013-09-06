@@ -73,5 +73,18 @@ namespace Service
         /// </summary>
         /// <returns></returns>
         string GetUserAvatar(string userId);
+
+        /// <summary>
+        /// 获取指定用户头像
+        /// </summary>
+        /// <returns></returns>
+        void UploadAvatar(string avatar);
+
+        /// <summary>
+        /// 判断提交的密码是否是当前用户的密码
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        bool IsCorrectPassword(string password);
     }
 }
