@@ -109,6 +109,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Core\LocalizationHelpers.cs" />
     <Compile Include="Core\UserPathFckProvider.cs" />
@@ -130,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\Controllers.xml" />
-    <Content Include="Config\GlobalSetting.xml" />
     <Content Include="Content\Logon.css" />
     <Content Include="easyui\easyloader.js" />
     <Content Include="easyui\jquery.easyui.min.js" />
@@ -703,6 +703,7 @@
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\MessageControl.ascx" />
     <Content Include="Views\Shared\SidebarControl.ascx" />
+    <Content Include="Views\System\Index.aspx" />
     <Content Include="Views\UserInfo\Index.aspx" />
     <Content Include="Views\UserInfo\View.aspx" />
     <Content Include="Views\Category\Index.aspx" />
