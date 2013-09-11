@@ -17,6 +17,12 @@
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="active"><a href="#home" data-toggle="tab"><i class="icon-globe"></i>全局设置</a></li>
                         <li class=""><a href="#model" data-toggle="tab"><i class="icon-th"></i>模块</a></li>
+                        <li class=""><a href="#province" data-toggle="tab"><i class="icon-move"></i>省份</a></li>
+                        <li class=""><a href="#city" data-toggle="tab"><i class="icon-move"></i>地市</a></li>
+                        <li class=""><a href="#region" data-toggle="tab"><i class="icon-move"></i>区域</a></li>
+                        <li class=""><a href="#department" data-toggle="tab"><i class="icon-sitemap"></i>部门</a></li>
+                        <li class=""><a href="#role" data-toggle="tab"><i class="icon-group"></i>角色</a></li>
+                        <li class=""><a href="#user" data-toggle="tab"><i class="icon-user"></i>用户</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade active in" id="home">
@@ -40,6 +46,18 @@
                             </div>
                         </div>
                         <div class="tab-pane fade " id="model">
+                        </div>
+                        <div class="tab-pane fade " id="province">
+                        </div>
+                        <div class="tab-pane fade " id="city">
+                        </div>
+                        <div class="tab-pane fade " id="region">
+                        </div>
+                        <div class="tab-pane fade " id="department">
+                        </div>
+                        <div class="tab-pane fade " id="role">
+                        </div>
+                        <div class="tab-pane fade " id="user">
                         </div>
                     </div>
                 </div>

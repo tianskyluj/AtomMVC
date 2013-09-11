@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ViewModel>
+	<Direct value="Account" name="账户设置">
+		<URL value="Index" name="账户设置"/>
+	</Direct>
+	<Direct value="Article" name="文章管理">
+		<URL value="Index" name="文章首页"/>
+	</Direct>
+</ViewModel>
