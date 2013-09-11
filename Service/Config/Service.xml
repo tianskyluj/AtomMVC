@@ -41,6 +41,13 @@
 		</property>
 	</object>
 
+	<object id="Manager.SystemModel" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="Service.Implement.SystemModelManager, Service">
+				<property name="CurrentRepository" ref="Repository.SystemModel"/>
+			</object>
+		</property>
+	</object>
 
 </objects>
 

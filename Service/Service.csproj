@@ -48,12 +48,14 @@
     <Compile Include="Implement\CategoryManager.cs" />
     <Compile Include="Implement\ArticleManager.cs" />
     <Compile Include="Implement\GlobalSettingManager.cs" />
+    <Compile Include="Implement\SystemModelManager.cs" />
     <Compile Include="IUserInfoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IForumManager.cs" />
     <Compile Include="ICategoryManager.cs" />
     <Compile Include="IArticleManager.cs" />
     <Compile Include="IGlobalSettingManager.cs" />
+    <Compile Include="ISystemModelManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
