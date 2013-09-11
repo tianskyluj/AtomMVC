@@ -16,6 +16,10 @@
 		<property name="GlobalSettingManager" ref="Manager.GlobalSetting"/>
 	</object>
 
+	<object type="WebSite.Controllers.SystemModelController, WebSite" singleton="false" >
+		<property name="GlobalSettingManager" ref="Manager.SystemModel"/>
+	</object>
+
 	<object type="WebSite.Controllers.AccountController, WebSite" singleton="false" >
 		<property name="UserInfoManager" ref="Manager.UserInfo"/>
 	</object>
