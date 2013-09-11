@@ -6,4 +6,15 @@
 	<Direct value="Article" name="文章管理">
 		<URL value="Index" name="文章首页"/>
 	</Direct>
+	<Direct value="Diagnose" name="企业诊断">
+		<URL value="Index" name="财务状况"/>
+		<URL value="Index" name="员工状况"/>
+		<URL value="Index" name="销售状况"/>
+		<URL value="Index" name="客户状况"/>
+	</Direct>
+	<Direct value="Service" name="企业服务">
+		<URL value="Index" name="抵押贷款"/>
+		<URL value="Index" name="融资租赁"/>
+		<URL value="Index" name="财务服务"/>
+	</Direct>
 </ViewModel>
