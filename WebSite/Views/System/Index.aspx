@@ -29,11 +29,49 @@
                             <div class="row-fluid">
                                 <div class="span12">
                                     <div class="body">
+                                        <form action="#" class="form-horizontal">
                                         <div class="control-group">
                                             <label class="control-label">
                                                 公司名称</label>
                                             <div class="controls">
-                                                <input id="companyName_edit" class="input-xlarge" placeholder="填写公司名称" value='<%:ViewData["companyName"]%>' data-bind="value:companyName" />
+                                                <input id="companyName_edit" class="input-xlarge" placeholder="填写公司名称" value='<%:ViewData["companyName"]%>'
+                                                    data-bind="value:companyName" />
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                是否开启省份权限控制</label>
+                                            <div class="controls">
+                                                <label class="checkbox inline">
+                                                    <input id="isProvince_edit" type="checkbox" value='<%:ViewData["isProvince"]%>' data-bind="checked:isProvince" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                是否开启地市权限控制</label>
+                                            <div class="controls">
+                                                <label class="checkbox inline">
+                                                    <input id="isCity_edit" type="checkbox" value='<%:ViewData["isCity"]%>' data-bind="checked:isCity" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                是否开启区域权限控制</label>
+                                            <div class="controls">
+                                                <label class="checkbox inline">
+                                                     <input id="isRegion_edit" type="checkbox" value='<%:ViewData["isRegion"]%>' data-bind="checked:isRegion" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                是否开启部门权限控制</label>
+                                            <div class="controls">
+                                                <label class="checkbox inline">
+                                                    <input id="isDepartment_edit" type="checkbox" value='<%:ViewData["isDepartment"]%>' data-bind="checked:isDepartment" />
+                                                </label>
                                             </div>
                                         </div>
                                         <div>
@@ -41,6 +79,7 @@
                                                 确认修改
                                             </button>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +106,6 @@
     <div style="visibility: hidden">
         <input data-bind="value:companyName" />
     </div>
-
 </body>
 <script src="../../Scripts/System/Index.js"></script>
 </html>

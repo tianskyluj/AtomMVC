@@ -17,7 +17,10 @@ namespace WebSite.Controllers
         public ActionResult Index()
         {
             ViewData["companyName"] = GlobalSettingManager.GetGlobalCache().CompanyName;
-
+            ViewData["isProvince"] = GlobalSettingManager.GetGlobalCache().IsProvince;
+            ViewData["isCity"] = GlobalSettingManager.GetGlobalCache().IsCity;
+            ViewData["isRegion"] = GlobalSettingManager.GetGlobalCache().IsRegion;
+            ViewData["isDepartment"] = GlobalSettingManager.GetGlobalCache().IsDepartment;
             return View();
         }
 

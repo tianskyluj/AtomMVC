@@ -5614,3 +5614,144 @@ QUERYSTRING:
    在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
    在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-20 16:09:40,540 [4] ERROR Logger [(null)] - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: SQL Network Interfaces, error: 26 - 定位指定的服务器/实例时出错)
+SOURCE: .Net SqlClient Data Provider
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: System.Data.ProviderBase.DbConnectionInternal GetConnection(System.Data.Common.DbConnection)
+堆栈跟踪:    在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.DbProviderWrapper.GetConnection()
+   在 NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   在 NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   在 NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   在 NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   在 NHibernate.Cfg.Configuration.BuildSessionFactory()
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.NewSessionFactory(Configuration config)
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.AfterPropertiesSet()
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InvokeInitMethods(Object target, String name, IConfigurableObjectDefinition definition)
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ConfigureObject(String name, RootObjectDefinition definition, IObjectWrapper wrapper)
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject(String name, RootObjectDefinition definition, Object[] arguments, Boolean allowEagerCaching, Boolean suppressConfigure)
+2013-09-20 16:10:59,212 [4] ERROR Logger [(null)] - 无法打开登录所请求的数据库 "AtomMVC"。登录失败。
+用户 '9PYK4LRNR9WTRO1\Administrator' 登录失败。
+SOURCE: .Net SqlClient Data Provider
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: System.Data.ProviderBase.DbConnectionInternal GetConnection(System.Data.Common.DbConnection)
+堆栈跟踪:    在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.DbProviderWrapper.GetConnection()
+   在 NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   在 NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   在 NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   在 NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   在 NHibernate.Cfg.Configuration.BuildSessionFactory()
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.NewSessionFactory(Configuration config)
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.AfterPropertiesSet()
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InvokeInitMethods(Object target, String name, IConfigurableObjectDefinition definition)
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ConfigureObject(String name, RootObjectDefinition definition, IObjectWrapper wrapper)
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject(String name, RootObjectDefinition definition, Object[] arguments, Boolean allowEagerCaching, Boolean suppressConfigure)
+2013-09-20 16:11:36,851 [10] ERROR Logger [(null)] - Argument 'Key must not be null' cannot be null.
+参数名: Key must not be null
+SOURCE: Spring.Core
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void ArgumentNotNull(System.Object, System.String)
+堆栈跟踪:    在 Spring.Util.AssertUtils.ArgumentNotNull(Object argument, String name)
+   在 Spring.Transaction.Support.TransactionSynchronizationManager.HasResource(Object key)
+   在 Spring.Data.NHibernate.Support.SessionScope.Open()
+   在 Spring.Data.NHibernate.Support.OpenSessionInViewModule.context_BeginRequest(Object sender, EventArgs e)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-20 16:11:37,070 [4] ERROR Logger [(null)] - Argument 'Key must not be null' cannot be null.
+参数名: Key must not be null
+SOURCE: Spring.Core
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void ArgumentNotNull(System.Object, System.String)
+堆栈跟踪:    在 Spring.Util.AssertUtils.ArgumentNotNull(Object argument, String name)
+   在 Spring.Transaction.Support.TransactionSynchronizationManager.HasResource(Object key)
+   在 Spring.Data.NHibernate.Support.SessionScope.Open()
+   在 Spring.Data.NHibernate.Support.OpenSessionInViewModule.context_BeginRequest(Object sender, EventArgs e)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-20 16:11:48,697 [8] ERROR Logger [(null)] - Argument 'Key must not be null' cannot be null.
+参数名: Key must not be null
+SOURCE: Spring.Core
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void ArgumentNotNull(System.Object, System.String)
+堆栈跟踪:    在 Spring.Util.AssertUtils.ArgumentNotNull(Object argument, String name)
+   在 Spring.Transaction.Support.TransactionSynchronizationManager.HasResource(Object key)
+   在 Spring.Data.NHibernate.Support.SessionScope.Open()
+   在 Spring.Data.NHibernate.Support.OpenSessionInViewModule.context_BeginRequest(Object sender, EventArgs e)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-20 16:11:48,906 [9] ERROR Logger [(null)] - Argument 'Key must not be null' cannot be null.
+参数名: Key must not be null
+SOURCE: Spring.Core
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void ArgumentNotNull(System.Object, System.String)
+堆栈跟踪:    在 Spring.Util.AssertUtils.ArgumentNotNull(Object argument, String name)
+   在 Spring.Transaction.Support.TransactionSynchronizationManager.HasResource(Object key)
+   在 Spring.Data.NHibernate.Support.SessionScope.Open()
+   在 Spring.Data.NHibernate.Support.OpenSessionInViewModule.context_BeginRequest(Object sender, EventArgs e)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-20 16:12:46,497 [4] ERROR Logger [(null)] - 未能从程序集“WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“WebSite.Controllers.SystemModelController”。
+SOURCE: mscorlib
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void GetType(System.Reflection.RuntimeAssembly, System.String, Boolean, Boolean, System.Runtime.CompilerServices.ObjectHandleOnStack)
+堆栈跟踪:    在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 Spring.Core.TypeResolution.TypeResolver.LoadTypeDirectlyFromAssembly(TypeAssemblyHolder typeInfo)
+   在 Spring.Core.TypeResolution.TypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.GenericTypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.CachedTypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.TypeResolutionUtils.ResolveType(String typeName)
+   在 Spring.Objects.Factory.Support.AbstractObjectDefinition.ResolveObjectType()
+   在 Spring.Objects.Factory.Support.AbstractObjectFactory.ResolveObjectType(RootObjectDefinition rod, String objectName)
+2013-09-20 16:12:46,987 [9] ERROR Logger [(null)] - 文件不存在。
+SOURCE: System.Web
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: System.IO.FileInfo GetFileInfo(System.String, System.String, System.Web.HttpResponse)
+堆栈跟踪:    在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-20 16:16:34,073 [9] ERROR Logger [(null)] - 未能从程序集“WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“WebSite.Controllers.SystemModelController”。
+SOURCE: mscorlib
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void GetType(System.Reflection.RuntimeAssembly, System.String, Boolean, Boolean, System.Runtime.CompilerServices.ObjectHandleOnStack)
+堆栈跟踪:    在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 Spring.Core.TypeResolution.TypeResolver.LoadTypeDirectlyFromAssembly(TypeAssemblyHolder typeInfo)
+   在 Spring.Core.TypeResolution.TypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.GenericTypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.CachedTypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.TypeResolutionUtils.ResolveType(String typeName)
+   在 Spring.Objects.Factory.Support.AbstractObjectDefinition.ResolveObjectType()
+   在 Spring.Objects.Factory.Support.AbstractObjectFactory.ResolveObjectType(RootObjectDefinition rod, String objectName)
+2013-09-20 16:17:18,354 [4] ERROR Logger [(null)] - 未能从程序集“WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“WebSite.Controllers.SystemModelController”。
+SOURCE: mscorlib
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void GetType(System.Reflection.RuntimeAssembly, System.String, Boolean, Boolean, System.Runtime.CompilerServices.ObjectHandleOnStack)
+堆栈跟踪:    在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 Spring.Core.TypeResolution.TypeResolver.LoadTypeDirectlyFromAssembly(TypeAssemblyHolder typeInfo)
+   在 Spring.Core.TypeResolution.TypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.GenericTypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.CachedTypeResolver.Resolve(String typeName)
+   在 Spring.Core.TypeResolution.TypeResolutionUtils.ResolveType(String typeName)
+   在 Spring.Objects.Factory.Support.AbstractObjectDefinition.ResolveObjectType()
+   在 Spring.Objects.Factory.Support.AbstractObjectFactory.ResolveObjectType(RootObjectDefinition rod, String objectName)

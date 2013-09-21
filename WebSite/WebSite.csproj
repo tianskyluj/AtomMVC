@@ -110,6 +110,7 @@
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\SystemModelController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Core\LocalizationHelpers.cs" />
     <Compile Include="Core\UserPathFckProvider.cs" />

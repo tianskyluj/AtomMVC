@@ -15,9 +15,9 @@
     <link href="../assets/js/bootstrap-fileupload/bootstrap-fileupload.min.css" rel="stylesheet"/>
     <link href="../assets/css/docs.css" rel="stylesheet"/>
     <link href="../assets/js/jqvmap/jqvmap/jqvmap.css" rel="stylesheet"/>
-    <link href="../assets/js/datatables/media/DT_bootstrap.css" rel="stylesheet">
-    <link href="../assets/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href="../assets/js/datatables/media/DT_bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/prettify.css" rel="stylesheet" type="text/css"/>
     <style>
         #g1, #g2, #g3
         {
