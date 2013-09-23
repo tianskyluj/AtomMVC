@@ -32,5 +32,25 @@
     }
 
     // 注册模型
-    ko.applyBindings(new globalViewModel());
+    ko.cleanNode(document.body);
+    ko.applyBindings(new globalViewModel(),document.body);
 });
+
+//var profileModel = {
+//    first: ko.observable("Bob"),
+//    last: ko.observable("Smith")
+//};
+
+//var shellModel = {
+//    header: ko.observable("Administration"),
+//    sections: ["profile", "settings", "notifications"],
+//    selectedSection: ko.observable()
+//};
+
+////the overall view model
+//var viewModel = {
+//    shell: shellModel,
+//    profile: profileModel
+//};
+
+//ko.applyBindings(viewModel);
