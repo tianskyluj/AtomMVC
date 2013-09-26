@@ -44,6 +44,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="Forum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="GlobalSetting.cs" />
     <Compile Include="SystemModel.cs" />
@@ -65,6 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SystemModel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Registration.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

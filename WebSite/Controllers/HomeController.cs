@@ -24,6 +24,8 @@ namespace WebSite.Controllers
 
         public IGlobalSettingManager GlobalSettingManager { get; set; }
 
+        public IRegistrationManager RegistrationManager { get; set; }
+
         public ActionResult Index()
         {
             GlobalSettingManager.SetGlobalCache();
@@ -35,6 +37,14 @@ namespace WebSite.Controllers
                 string avatarString = UserInfoManager.GetUserAvatar();
                 ViewData["avatar"] = avatarString == "" ? "../../Upload/Avatar/DefaultAvatar.jpg" : avatarString;
                 ViewData["visible"] = UserInfoManager.GetUserSession().IsAdmin;
+
+                // 显示签到按钮操作
+                Registration registrationObj = RegistrationManager.GetDayRegistration(UserInfoManager.GetUserSession().ID, DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                if (registrationObj == null)
+                    ViewData["registration"] = "签到";
+                else
+                    ViewData["registration"] = "下班";
+
                 return View();
             }
             else
@@ -87,11 +97,22 @@ namespace WebSite.Controllers
             return Content(echo ? "1" : "0");
         }
 
-        //public ActionResult LogOut()
-        //{
-        //    FormsAuthentication.SignOut();
-        //    return Redirect("/LogOn/");
-        //}
+        /// <summary>
+        /// 签到操作
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Registration(string userId)
+        {
+            // 签到
+            Registration registrationObj = RegistrationManager.GetDayRegistration(UserInfoManager.GetUserSession().ID, DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            if (registrationObj == null)
+                RegistrationManager.AddRegistration(UserInfoManager.GetUserSession().ID);
+            else
+                RegistrationManager.UpdateRegistration(registrationObj);
+
+            return Content("1");
+        }
 
         public ActionResult LogOnByAndPassword(string account, string password, string code)
         {

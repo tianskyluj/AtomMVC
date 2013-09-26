@@ -73,6 +73,7 @@
     <Compile Include="Implement\CategoryRepository.cs" />
     <Compile Include="Implement\GlobalSettingRepository.cs" />
     <Compile Include="Implement\SystemModelRepository.cs" />
+    <Compile Include="Implement\RegistrationRepository.cs" />
     <Compile Include="IRepository`1.cs" />
     <Compile Include="IUserInfoRepository.cs" />
     <Compile Include="RepositoryBase`1.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="ICategoryRepository.cs" />
     <Compile Include="IGlobalSettingRepository.cs" />
     <Compile Include="ISystemModelRepository.cs" />
+    <Compile Include="IRegistrationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

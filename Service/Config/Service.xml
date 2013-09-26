@@ -49,5 +49,13 @@
 		</property>
 	</object>
 
+	<object id="Manager.Registration" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="Service.Implement.RegistrationManager, Service">
+				<property name="CurrentRepository" ref="Repository.Registration"/>
+			</object>
+		</property>
+	</object>
+
 </objects>
 

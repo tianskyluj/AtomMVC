@@ -25,5 +25,9 @@
 		<property name="HibernateTemplate" ref="HibernateTemplate"/>
 	</object>
 
+	<object id="Repository.Registration" type="Dao.Implement.RegistrationRepository, Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+
 </objects>
 

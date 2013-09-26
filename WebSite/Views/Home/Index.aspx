@@ -66,4 +66,5 @@
         </form>
     </div>
 </body>
+<script src="../../Scripts/Home/Index.js"></script>
 </html>
