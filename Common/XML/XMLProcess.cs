@@ -2,9 +2,9 @@
 using System.Data;
 using System.IO;
 using System.Xml;
-using AtomOA.Common.Sys;
+using Atom.Common.Sys;
 
-namespace AtomOA.Common.XML
+namespace Atom.Common.XML
 {
     public class XMLProcess
     {

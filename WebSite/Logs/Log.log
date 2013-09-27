@@ -6084,3 +6084,13 @@ QUERYSTRING:
    在 NHibernate.AdoNet.AbstractBatcher.ExecuteNonQuery(IDbCommand cmd)
    在 NHibernate.AdoNet.NonBatchingBatcher.AddToBatch(IExpectation expectation)
    在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Boolean[] notNull, Int32 j, SqlCommandInfo sql, Object obj, ISessionImplementor session)
+2013-09-27 10:38:19,312 [10] ERROR Logger [(null)] - 文件不存在。
+SOURCE: System.Web
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: System.IO.FileInfo GetFileInfo(System.String, System.String, System.Web.HttpResponse)
+堆栈跟踪:    在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

@@ -1,9 +1,9 @@
 ﻿using System.Xml;
 using System.Data;
-using AtomOA.Common.Sys;
-using AtomOA.Common.Files;
+using Atom.Common.Sys;
+using Atom.Common.Files;
 
-namespace AtomOA.Common.XML
+namespace Atom.Common.XML
 {
     public class XmlHelper
     {

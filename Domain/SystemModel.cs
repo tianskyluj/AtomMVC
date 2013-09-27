@@ -26,7 +26,12 @@ namespace Domain
         /// <summary>
         /// 上级节点
         /// </summary>
-        public virtual int ParentId { get; set; }
+        public virtual Guid ParentId { get; set; }
+
+        /// <summary>
+        /// 排序码
+        /// </summary>
+        public virtual int OrderIndex { get; set; }
 
         /// <summary>
         /// 是否有效

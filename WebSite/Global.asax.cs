@@ -9,6 +9,8 @@ using Spring.Web.Mvc;
 using Spring.Context;
 using Spring.Context.Support;
 using Service;
+using System.Data;
+using Atom.Common;
 
 namespace WebSite
 {
@@ -29,6 +31,8 @@ namespace WebSite
             this.SetInitAccount();
 
             this.SetGlobalSetting();
+
+            this.LoadSystemModel();
         }
 
         /// <summary>
@@ -65,7 +69,7 @@ namespace WebSite
         {
             IApplicationContext cxt = ContextRegistry.GetContext();
             IGlobalSettingManager manger = (IGlobalSettingManager)cxt.GetObject("Manager.GlobalSetting");
-
+            
             var global = manger.LoadAll().FirstOrDefault();
             if (global == null)
             {
@@ -75,6 +79,36 @@ namespace WebSite
                     CompanyName = "原子科技"
                 };
                 manger.Save(global);
+            }
+        }
+
+        /// <summary>
+        /// 按config文件夹中的viewModel.xml配置文件加载系统模块
+        /// </summary>
+        private void LoadSystemModel()
+        {
+            string xmlPath = "~/Config/ViewModel.xml";
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            ISystemModelManager manger = (ISystemModelManager)cxt.GetObject("Manager.SystemModel");
+            IList<Domain.SystemModel> modelList = manger.LoadAll();
+            if (modelList.Count == 0)
+            {
+                //manger.LoadSystemModelWithXML();
+                // 把xml文件转换成dataSet
+                Atom.Common.XML.XMLProcess xmlProcess = new Atom.Common.XML.XMLProcess();
+                DataSet xmlDS = xmlProcess.GetDataSetByXml(xmlPath);
+                // 生成目录
+                for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
+                {
+                    int DirectId = xmlDS.Tables[0].Rows[i]["Direct_Id"].ToInt();
+                    Guid guid = manger.FastAddSystemModel(new Guid(), "", xmlDS.Tables[0].Rows[i]["Name"].ToString(), i);
+                    // 生成页面
+                    DataRow[] drs = xmlDS.Tables[1].Select("Direct_Id=" + DirectId.ToStr());
+                    for (int j = 0; j < drs.Length; j++)
+                    {
+                        manger.FastAddSystemModel(guid, drs[j]["value"].ToString(), drs[j]["Name"].ToString(), j);
+                    }
+                }
             }
         }
 

@@ -132,7 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\Controllers.xml" />
-    <Content Include="Config\ViewModel.xml" />
+    <Content Include="Config\ViewModel.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\Logon.css" />
     <Content Include="easyui\easyloader.js" />
     <Content Include="easyui\jquery.easyui.min.js" />

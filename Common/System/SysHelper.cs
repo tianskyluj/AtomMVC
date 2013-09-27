@@ -3,7 +3,7 @@ using System.Web;
 using System.Threading;
 using System.Diagnostics;
 
-namespace AtomOA.Common.Sys
+namespace Atom.Common.Sys
 {
     public static class SysHelper
     {

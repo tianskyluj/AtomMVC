@@ -2,7 +2,7 @@
 using System.Text;
 using System.IO;
 
-namespace AtomOA.Common.Files
+namespace Atom.Common.Files
 {
    /// <summary>
     /// 文件操作夹

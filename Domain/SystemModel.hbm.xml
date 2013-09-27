@@ -22,10 +22,15 @@
 		</property>
 
 		<!--上级节点-->
-		<property name="ParentId" type="int">
-			<column name="ParentId" length="32" not-null="true"/>
+		<property name="ParentId" type="Guid">
+			<column name="ParentId"  not-null="true"/>
 		</property>
 
+		<!--排序码-->
+		<property name="OrderIndex" type="int">
+			<column name="OrderIndex"  not-null="false"/>
+		</property>
+		
 		<!--启用-->
 		<property name="IsEnabled" type="bool">
 			<column name="IsEnabled" not-null="true"/>

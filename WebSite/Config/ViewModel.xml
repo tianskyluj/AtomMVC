@@ -1,20 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ViewModel>
-	<Direct value="Account" name="账户设置">
+	<Direct value="Account" name="账户设置" > 
 		<URL value="Index" name="账户设置"/>
 	</Direct>
-	<Direct value="Article" name="文章管理">
-		<URL value="Index" name="文章首页"/>
+	<Direct value="Diagnose" name="企业诊断" >
+		<URL value="Diagnose/Index" name="财务状况"/>
+		<URL value="Diagnose/Index" name="员工状况"/>
+		<URL value="Diagnose/Index" name="销售状况"/>
+		<URL value="Diagnose/Index" name="客户状况"/>
 	</Direct>
-	<Direct value="Diagnose" name="企业诊断">
-		<URL value="Index" name="财务状况"/>
-		<URL value="Index" name="员工状况"/>
-		<URL value="Index" name="销售状况"/>
-		<URL value="Index" name="客户状况"/>
-	</Direct>
-	<Direct value="Service" name="企业服务">
-		<URL value="Index" name="抵押贷款"/>
-		<URL value="Index" name="融资租赁"/>
-		<URL value="Index" name="财务服务"/>
+	<Direct value="Service" name="企业服务" >
+		<URL value="Service/Index" name="抵押贷款"/>
+		<URL value="Service/Index" name="融资租赁"/>
+		<URL value="Service/Index" name="财务服务"/>
 	</Direct>
 </ViewModel>

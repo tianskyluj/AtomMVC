@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Domain;
 using System.IO;
-using AtomOA.Common.Sys;
+using Atom.Common.Sys;
 using System.Web;
 
 namespace Service.Implement
