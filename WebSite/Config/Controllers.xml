@@ -15,6 +15,7 @@
 
 	<object type="WebSite.Controllers.SystemController, WebSite" singleton="false" >
 		<property name="GlobalSettingManager" ref="Manager.GlobalSetting"/>
+		<property name="SystemModelManager" ref="Manager.SystemModel"/>
 	</object>
 
 	<object type="WebSite.Controllers.SystemModelController, WebSite" singleton="false" >

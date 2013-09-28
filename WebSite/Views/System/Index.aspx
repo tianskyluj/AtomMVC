@@ -86,57 +86,29 @@
                             </div>
                         </div>
                         <div class="tab-pane fade " id="model">
+                            <div style="margin-bottom:10px">
+                                <button id="btn_addModel" class="btn btn-primary" >
+                                    添加
+                                </button>
+                                <button id="btn_isExpand" class="btn btn-primary" data-bind="click:isExpand">
+                                    收起
+                                </button>
+                            </div>
                             <div class="tree">
                                 <ul>
-                                    <li><span><i class="icon-calendar"></i>2013, Week 2</span>
+                                    <% foreach (var item in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == new Guid()).OrderBy(f => f.OrderIndex))
+                                       { %>
+                                    <li><span class="badge badge-success"><i class="icon-calendar"></i>
+                                        <%= item.Name %></span>
                                         <ul>
-                                            <li><span class="badge badge-success"><i class="icon-minus-sign"></i>Monday, January
-                                                7: 8.00 hours</span>
-                                                <ul>
-                                                    <li><a href=""><span><i class="icon-time"></i>8.00</span> &ndash; Changed CSS to accomodate...</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="badge badge-success"><i class="icon-minus-sign"></i>Tuesday, January
-                                                8: 8.00 hours</span>
-                                                <ul>
-                                                    <li><span><i class="icon-time"></i>6.00</span> &ndash; <a href="">Altered code...</a>
-                                                    </li>
-                                                    <li><span><i class="icon-time"></i>2.00</span> &ndash; <a href="">Simplified our approach
-                                                        to...</a> </li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="badge badge-warning"><i class="icon-minus-sign"></i>Wednesday, January
-                                                9: 6.00 hours</span>
-                                                <ul>
-                                                    <li><a href=""><span><i class="icon-time"></i>3.00</span> &ndash; Fixed bug caused by...</a>
-                                                    </li>
-                                                    <li><a href=""><span><i class="icon-time"></i>3.00</span> &ndash; Comitting latest code
-                                                        to Git...</a> </li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="badge badge-important"><i class="icon-minus-sign"></i>Wednesday, January
-                                                9: 4.00 hours</span>
-                                                <ul>
-                                                    <li><a href=""><span><i class="icon-time"></i>2.00</span> &ndash; Create component that...</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                            <% foreach (var childrenItem in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == item.ID).OrderBy(f => f.OrderIndex))
+                                               {  %>
+                                            <li><span><i class="icon-minus-sign"></i>
+                                                <%= childrenItem.Name%>&nbsp;URL:<%= childrenItem.Url%></span> </li>
+                                            <% } %>
                                         </ul>
                                     </li>
-                                    <li><span><i class="icon-calendar"></i>2013, Week 3</span>
-                                        <ul>
-                                            <li><span class="badge badge-success"><i class="icon-minus-sign"></i>Monday, January
-                                                14: 8.00 hours</span>
-                                                <ul>
-                                                    <li><span><i class="icon-time"></i>7.75</span> &ndash; <a href="">Writing documentation...</a>
-                                                    </li>
-                                                    <li><span><i class="icon-time"></i>0.25</span> &ndash; <a href="">Reverting code back
-                                                        to...</a> </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <% } %>
                                 </ul>
                             </div>
                         </div>

@@ -29,6 +29,26 @@
                     function (result) { if (result == "1") { showSuccess("操作成功"); } else { showError("修改全局设置出错，请稍后再试或者联系系统管理员") } }
             );
         };
+
+        this.isExpand=function(){
+            var parentModel = $('.tree').find('li:has(ul)').addClass('parent_li').attr('role', 'treeitem').find(' > span').attr('title', 'Collapse this branch');
+            parentModel.each(function(){
+                var children = $(this).parent('li.parent_li').find(' > ul > li');
+                if (children.is(':visible')) {
+    		        children.hide('fast');
+    		        $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+                }
+                else {
+    		        children.show('fast');
+    		        $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+                }
+                //e.stopPropagation();
+            });
+            if($('#btn_isExpand').html()=="展开")
+                $('#btn_isExpand').html("收起");
+            else
+                $('#btn_isExpand').html("展开")
+        }
     }
 
     // 注册模型

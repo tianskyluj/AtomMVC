@@ -11,6 +11,7 @@ namespace WebSite.Controllers
     public class SystemController : Controller
     {
         public IGlobalSettingManager GlobalSettingManager { get; set; }
+        public ISystemModelManager SystemModelManager { get; set; }
         //
         // GET: /System/
 
@@ -21,6 +22,7 @@ namespace WebSite.Controllers
             ViewData["isCity"] = GlobalSettingManager.GetGlobalCache().IsCity;
             ViewData["isRegion"] = GlobalSettingManager.GetGlobalCache().IsRegion;
             ViewData["isDepartment"] = GlobalSettingManager.GetGlobalCache().IsDepartment;
+            ViewData["SystemModel"] = SystemModelManager.LoadAll();
             return View();
         }
 
