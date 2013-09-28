@@ -8,7 +8,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" runat="server" href="../Web/index.aspx" id="brand">
+            <a class="brand" runat="server" href="/Home/index" id="brand">
+               <%: ViewData["CompanyName"] %>
             </a>
             <ul class="nav pull-right nav-indicators">
                 <li class="dropdown nav-notifications">
