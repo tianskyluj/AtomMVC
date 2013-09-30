@@ -199,7 +199,7 @@
         </div>
         <div class="modal-footer">
             <button class="btn btn-danger" data-dismiss="modal">关闭</button>
-            <a class="btn btn-primary" id="confirmSave">保存</a>
+            <a class="btn btn-primary" id="confirmSave"  data-bind="click:saveModel">保存</a>
         </div>
     </aside>
     <div style="visibility: hidden">

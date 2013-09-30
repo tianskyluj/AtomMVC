@@ -55,6 +55,27 @@
                 $('#btn_isExpand').html("展开")
         }
 
+        // 保存模块更改
+        this.saveModel = function () {
+            if (this.modelName().trim() == "") {
+                showError("请输入模块名称……");
+                return false;
+            }
+            $.post(
+                    '/System/SaveSystemModel',
+                    {
+                        "id": $('#'),
+                        "companyName": this.companyName(),
+                        "isProvince": this.isProvince(),
+                        "isCity": this.isCity(),
+                        "isRegion": this.isRegion(),
+                        "isDepartment": this.isDepartment()
+                    },
+                    function (result) { if (result == "1") { showSuccess("操作成功"); } else { showError("修改全局设置出错，请稍后再试或者联系系统管理员") } }
+            );
+            $("#addAndUpdateModel").modal("hide");
+        }
+
         // 添加系统模块
         this.addModel = function () {
             $("#modelAddAndUpdateTitle").html("添加");
