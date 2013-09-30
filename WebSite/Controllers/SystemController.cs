@@ -23,6 +23,7 @@ namespace WebSite.Controllers
             ViewData["isRegion"] = GlobalSettingManager.GetGlobalCache().IsRegion;
             ViewData["isDepartment"] = GlobalSettingManager.GetGlobalCache().IsDepartment;
             ViewData["SystemModel"] = SystemModelManager.LoadAll();
+            ViewData["NullGuid"] = new Guid();
             return View();
         }
 

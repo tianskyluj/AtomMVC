@@ -34,8 +34,8 @@
                                             <label class="control-label">
                                                 公司名称</label>
                                             <div class="controls">
-                                                <input id="companyName_edit" class="input-xlarge" placeholder="填写公司名称" value='<%:ViewData["companyName"]%>'
-                                                    data-bind="value:companyName" />
+                                                <input id="companyName_edit" type="text" class="input-xlarge" placeholder="填写公司名称"
+                                                    value='<%:ViewData["companyName"]%>' data-bind="value:companyName" />
                                             </div>
                                         </div>
                                         <div class="control-group">
@@ -86,8 +86,8 @@
                             </div>
                         </div>
                         <div class="tab-pane fade " id="model">
-                            <div style="margin-bottom:10px">
-                                <button id="btn_addModel" class="btn btn-primary" >
+                            <div style="margin-bottom: 10px">
+                                <button id="btn_addModel" class="btn btn-primary" data-bind="click:addModel">
                                     添加
                                 </button>
                                 <button id="btn_isExpand" class="btn btn-primary" data-bind="click:isExpand">
@@ -98,13 +98,24 @@
                                 <ul>
                                     <% foreach (var item in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == new Guid()).OrderBy(f => f.OrderIndex))
                                        { %>
-                                    <li><span class="badge badge-success"><i class="icon-calendar"></i>
-                                        <%= item.Name %></span>
+                                    <li>
+                                        <span class="badge badge-success">
+                                            <i class="icon-calendar"></i><%= item.Name %>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </span>
+                                        <a href="#" class="btn btn-mini" data-bind="click:updateModel"><i class="icon-edit modifyModel"></i>修改 </a>
+                                        &nbsp;
+                                        <a href="#" class="btn btn-mini " data-bind="click:deleteModel"><i class="icon-trash deleteModel"></i>删除 </a>
                                         <ul>
                                             <% foreach (var childrenItem in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == item.ID).OrderBy(f => f.OrderIndex))
                                                {  %>
-                                            <li><span><i class="icon-minus-sign"></i>
-                                                <%= childrenItem.Name%>&nbsp;URL:<%= childrenItem.Url%></span> </li>
+                                            <li>
+                                                <span>
+                                                    <i class="icon-minus-sign"></i><%= childrenItem.Name%>&nbsp;URL:<%= childrenItem.Url%>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </span>
+                                                <a href="#" class="btn btn-mini" data-bind="click:updateModel"><i class="icon-edit modifyModel"></i>修改 </a>
+                                                &nbsp;
+                                                <a href="#" class="btn btn-mini " data-bind="click:deleteModel"><i class="icon-trash deleteModel"></i>删除 </a>
+                                            </li>
                                             <% } %>
                                         </ul>
                                     </li>
@@ -129,6 +140,68 @@
             </div>
         </div>
     </div>
+    <!-- 系统模块添加修改弹出框 -->
+    <aside id="addAndUpdateModel" class="modal hide fade" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="H1"><span id="modelAddAndUpdateTitle">添加</span></h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label">
+                    模块名称</label>
+                <div class="controls">
+                     <input id="modelName_edit" type="text" class="input-xlarge" placeholder="填写模块名称"
+                       data-bind="value:modelName" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    访问地址</label>
+                <div class="controls">
+                    <input id="modelUrl_edit" type="text" class="input-xlarge" placeholder="填写访问地址"
+                       data-bind="value:modelUrl" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    上级模块</label>
+                <div class="controls">
+                    <select id="parentModel" class="span3" placeholder="填写访问地址">
+                        <option value='<%:ViewData["NullGuid"]%>'>根目录</option>
+                        <% foreach (var item in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == new Guid()).OrderBy(f => f.OrderIndex))
+                           { %>
+                        <option value="<%= item.ID %>"><%= item.Name %></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    左兄弟模块(排序在选择模块之后)</label>
+                <div class="controls">
+                    <select id="ddl_siblingModel" class="span3" placeholder="填写访问地址">
+                        <% foreach (var item in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).OrderBy(f => f.OrderIndex))
+                           { %>
+                        <option class="opt_siblingModel" value="<%= item.ID %>" parentid="<%= item.ParentId %>"><%= item.Name %></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    是否启用</label>
+                <div class="controls">
+                    <input id="modelIsEnable_edit" type="checkbox" checked="checked" value='<%:ViewData["isCity"]%>' data-bind="checked:modelIsEnable" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+            <a class="btn btn-primary" id="confirmSave">保存</a>
+        </div>
+    </aside>
     <div style="visibility: hidden">
         <input data-bind="value:companyName" />
     </div>

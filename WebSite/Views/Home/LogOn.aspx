@@ -63,8 +63,8 @@
         <form class="form-login" id="formLogin" runat="server">
         <h2 class="form-heading">
             <span id="title_login"><%: ViewData["CompanyName"] %></span></h2>
-        <input type="text" id="userName" runat="server" class="input-block-level" data-bind="value:userName" placeholder="用户名"/>
-        <input type="password" id="passWord" runat="server" class="input-block-level" data-bind="value:passWord" placeholder="密码"/>
+        <input type="text" id="userName"  class="input-block-level" data-bind="value:userName" placeholder="用户名"/>
+        <input type="password" id="passWord"  class="input-block-level" data-bind="value:passWord" placeholder="密码"/>
         <div class="row-fluid">
             <label class="checkbox span6">
                 <input type="checkbox" value="remember-me"/>记住密码

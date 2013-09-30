@@ -28,4 +28,5 @@
     <script src="../../assets/js/bootstrap-multiselect.js" type="text/javascript"></script>
 	<script src="../../assets/js/prettify.js" type="text/javascript"></script>
     <script src="../../assets/js/inc.js"></script>
+    <script src="../../assets/js/bootstrap-tree.js"></script>
     
