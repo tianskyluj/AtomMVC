@@ -62,16 +62,14 @@
                 return false;
             }
             $.post(
-                    '/System/SaveSystemModel',
+                    '/SystemModel/SaveSystemModel',
                     {
-                        "id": $('#'),
-                        "companyName": this.companyName(),
-                        "isProvince": this.isProvince(),
-                        "isCity": this.isCity(),
-                        "isRegion": this.isRegion(),
-                        "isDepartment": this.isDepartment()
+                        "name": this.modelName(),
+                        "url": this.modelUrl(),
+                        "parentId": $('#parentModel').val(),
+                        "isEnabled": this.modelIsEnable()
                     },
-                    function (result) { if (result == "1") { showSuccess("操作成功"); } else { showError("修改全局设置出错，请稍后再试或者联系系统管理员") } }
+                    function (result) { if (result == "1") { showSuccess("操作成功"); } else { showError("操作出错，请稍后再试或者联系系统管理员") } }
             );
             $("#addAndUpdateModel").modal("hide");
         }
@@ -123,22 +121,3 @@ function parentModelChanged() {
         $(this).wrap("<span style='display:none'></span>");
     });
 }
-
-//var profileModel = {
-//    first: ko.observable("Bob"),
-//    last: ko.observable("Smith")
-//};
-
-//var shellModel = {
-//    header: ko.observable("Administration"),
-//    sections: ["profile", "settings", "notifications"],
-//    selectedSection: ko.observable()
-//};
-
-////the overall view model
-//var viewModel = {
-//    shell: shellModel,
-//    profile: profileModel
-//};
-
-//ko.applyBindings(viewModel);

@@ -43,18 +43,6 @@ namespace WebSite.Controllers
             return Content("1");
         }
 
-        /// <summary>
-        /// 更新全局变量
-        /// </summary>
-        /// <param name="globalModel"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult SaveSystemModel(SystemModel systemModel)
-        {
-            if (systemModel.ID == new Guid()) systemModel.ID = Guid.NewGuid();
-            
-
-            return Content("1");
-        }
+       
     }
 }
