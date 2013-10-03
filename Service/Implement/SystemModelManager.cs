@@ -29,5 +29,28 @@ namespace Service.Implement
             base.Save(entity);
             return entity.ID;
         }
+
+        /// <summary>
+        /// 根据模块名称返回模块实体类集合
+        /// </summary>
+        /// <returns></returns>
+        public SystemModel LoadAllByName(string modelName)
+        {
+            SystemModel model = base.LoadAll().FirstOrDefault(f => f.Name == modelName);
+            if (model == null)
+            {
+                model = new SystemModel();
+                model.ID = Guid.NewGuid();
+            }
+            return model;
+        }
+
+        /// <summary>
+        /// 加入新的系统模块后重置系统模块排序码
+        /// </summary>
+        public void ResetOrderIndex()
+        { 
+            
+        }
     }
 }

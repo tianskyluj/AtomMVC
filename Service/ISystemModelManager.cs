@@ -22,5 +22,16 @@ namespace Service
         /// </summary>
         /// <param name="xmlPath"></param>
         //void LoadSystemModelWithXML();
+
+        /// <summary>
+        /// 根据模块名称返回模块实体类集合
+        /// </summary>
+        /// <returns></returns>
+        SystemModel LoadAllByName(string modelName);
+
+        /// <summary>
+        /// 加入新的系统模块后重置系统模块排序码
+        /// </summary>
+        void ResetOrderIndex();
     }
 }

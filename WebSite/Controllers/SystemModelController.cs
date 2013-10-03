@@ -21,15 +21,33 @@ namespace WebSite.Controllers
         }
 
         /// <summary>
-        /// 保存或者更新系统模块
+        /// 保存或者更新系统模块v
         /// </summary>
         /// <param name="globalModel"></param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult SaveSystemModel(SystemModel systemModel)
         {
-            if (systemModel.ID == new Guid()) systemModel.ID = Guid.NewGuid();
+            SystemModel modelObj = SystemModelManager.LoadAllByName(systemModel.Name);
+            modelObj.Name = systemModel.Name;
+            modelObj.Url = systemModel.Url;
+            modelObj.ParentId = systemModel.ParentId;
+            modelObj.IsEnabled = systemModel.IsEnabled;
+            SystemModelManager.SaveOrUpdate(modelObj);
 
+            return Content("1");
+        }
+
+        /// <summary>
+        /// 删除模块
+        /// </summary>
+        /// <param name="globalModel"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult DeleteSystemModel(SystemModel systemModel)
+        {
+            SystemModel modelObj = SystemModelManager.LoadAllByName(systemModel.Name);
+            SystemModelManager.Delete(modelObj.ID);
 
             return Content("1");
         }
