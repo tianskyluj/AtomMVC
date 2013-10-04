@@ -100,21 +100,21 @@
                                        { %>
                                     <li>
                                         <span class="badge badge-success">
-                                            <i class="icon-calendar"></i><%= item.Name %>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <i class="icon-calendar"></i><span><%= item.Name %></span>&nbsp;&nbsp;&nbsp;&nbsp;
                                         </span>
                                         <a href="#" class="btn btn-mini" data-bind="click:updateModel"><i class="icon-edit modifyModel"></i>修改 </a>
                                         &nbsp;
-                                        <a href="#" class="btn btn-mini " data-bind="click:deleteModel"><i class="icon-trash deleteModel"></i>删除 </a>
+                                        <a href="#" class="btn btn-mini deleteModel" ><i class="icon-trash deleteModel"></i>删除 </a>
                                         <ul>
                                             <% foreach (var childrenItem in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == item.ID).OrderBy(f => f.OrderIndex))
                                                {  %>
                                             <li>
                                                 <span>
-                                                    <i class="icon-minus-sign"></i><%= childrenItem.Name%>&nbsp;URL:<%= childrenItem.Url%>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <i class="icon-minus-sign"></i><span><%= childrenItem.Name%></span>&nbsp;URL:<%= childrenItem.Url%>&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </span>
                                                 <a href="#" class="btn btn-mini" data-bind="click:updateModel"><i class="icon-edit modifyModel"></i>修改 </a>
                                                 &nbsp;
-                                                <a href="#" class="btn btn-mini " data-bind="click:deleteModel"><i class="icon-trash deleteModel"></i>删除 </a>
+                                                <a href="#" class="btn btn-mini deleteModel" ><i class="icon-trash deleteModel"></i>删除 </a>
                                             </li>
                                             <% } %>
                                         </ul>

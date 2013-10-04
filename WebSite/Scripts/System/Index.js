@@ -86,13 +86,6 @@
             $("#addAndUpdateModel").modal("show");
         }
 
-        // 删除系统模块
-        this.deleteModel = function () {
-            if (confirm("确定删除该模块?")) {
-
-            }
-        }
-
         // 父节点下拉列表变化时兄弟节点下拉列表做相应变化
         $('#parentModel').change(function () {
             parentModelChanged();
@@ -104,6 +97,20 @@
     // 注册模型
     ko.cleanNode(document.body);
     ko.applyBindings(new globalViewModel(), document.body);
+
+    $(".deleteModel").bind({
+        click: function () {
+            if (confirm('将删除该模块和包含的子模块,确定删除吗')) {
+                $.post(
+                '/SystemModel/DeleteSystemModel',
+                {
+                    "name": $(this).siblings('span').children('span').html()
+                },
+                function (result) { if (result == "1") { redirect('/System/Index'); alert("操作成功"); } else { showError("操作出错，请稍后再试或者联系系统管理员") } }
+            );
+            }
+        }
+    });
 });
 
 function parentModelChanged() {
