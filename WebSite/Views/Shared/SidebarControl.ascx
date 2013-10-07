@@ -19,7 +19,7 @@
                         <div class="accordion-heading">
                             <a class="accordion-toggle opened" href="/Home/Index">
                                 <img src="../assets/img/icons/stuttgart-icon-pack/32x32/home.png" alt="工作台"/>
-                                <span>工作台</span><span class="badge">9</span> 
+                                <span>工作台</span>
                             </a>
                         </div>
                     </div>
@@ -28,6 +28,7 @@
                     <div class="accordion-group ">
                         <div class="accordion-heading">
                             <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion2" href="#<%= item.ID %>">
+                            <img src="../../assets/img/icons/stuttgart-icon-pack/32x32/invoice.png" alt="Charts">
                             <span><%= item.Name %></span><span class="arrow"></span> </a>
                         </div>
                         <ul id="<%= item.ID %>" class="accordion-body collapse nav nav-list collapse ">
