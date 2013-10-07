@@ -61,7 +61,6 @@
                 showError("请输入模块名称……");
                 return false;
             }
-            alert('faf');
             $.post(
                     '/SystemModel/SaveSystemModel',
                     {

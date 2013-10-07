@@ -26,6 +26,11 @@
 			<column name="ParentId"  not-null="true"/>
 		</property>
 
+    <!--左兄弟节点-->
+    <property name="SiblingId" type="Guid">
+      <column name="SiblingId"  not-null="true"/>
+    </property>
+
 		<!--排序码-->
 		<property name="OrderIndex" type="int">
 			<column name="OrderIndex"  not-null="false"/>

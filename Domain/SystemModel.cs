@@ -29,6 +29,11 @@ namespace Domain
         public virtual Guid ParentId { get; set; }
 
         /// <summary>
+        /// 左兄弟节点
+        /// </summary>
+        public virtual Guid SiblingId { get; set; }
+
+        /// <summary>
         /// 排序码
         /// </summary>
         public virtual int OrderIndex { get; set; }

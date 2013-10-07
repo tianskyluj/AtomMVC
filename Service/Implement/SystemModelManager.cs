@@ -75,5 +75,23 @@ namespace Service.Implement
                 base.Delete(systemModelList[i].ID);
             }
         }
+
+        /// <summary>
+        /// 根据orderIndex的值设置统一父节点的兄弟节点的值
+        /// </summary>
+        /// <param name="parentID"></param>
+        public void SetSiblingWithParentID(Guid parentID)
+        { 
+            
+        }
+
+        /// <summary>
+        /// 根据兄弟节点的值设置统一父节点的orderIndex的值
+        /// </summary>
+        /// <param name="parentID"></param>
+        public void SetOrderIndexWithParentID(Guid parentID)
+        { 
+            
+        }
     }
 }
