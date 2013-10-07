@@ -10,9 +10,9 @@ using System.Web.Script.Serialization;
 using System.Collections;
 using System.Data;
 
-namespace AtomOA.Common
+namespace Atom.Common
 {
-    class JsonHelper
+    public class JsonHelper
     {
         public JsonHelper()
         {

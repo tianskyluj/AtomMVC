@@ -52,5 +52,16 @@ namespace WebSite.Controllers
 
             return Content("1");
         }
+
+        /// <summary>
+        /// 修改模块，返回待修改模块的相关数据
+        /// </summary>
+        /// <param name="globalModel"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult UpdateSystemModel(SystemModel systemModel)
+        {
+            return Content(Atom.Common.JsonHelper.GetJson<SystemModel>(SystemModelManager.LoadAllByName(systemModel.Name)));
+        }
     }
 }

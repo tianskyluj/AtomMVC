@@ -102,7 +102,7 @@
                                         <span class="badge badge-success">
                                             <i class="icon-calendar"></i><span><%= item.Name %></span>&nbsp;&nbsp;&nbsp;&nbsp;
                                         </span>
-                                        <a href="#" class="btn btn-mini" data-bind="click:updateModel"><i class="icon-edit modifyModel"></i>修改 </a>
+                                        <a href="#" class="btn btn-mini modifyModel" ><i class="icon-edit modifyModel"></i>修改 </a>
                                         &nbsp;
                                         <a href="#" class="btn btn-mini deleteModel" ><i class="icon-trash deleteModel"></i>删除 </a>
                                         <ul>
@@ -112,7 +112,7 @@
                                                 <span>
                                                     <i class="icon-minus-sign"></i><span><%= childrenItem.Name%></span>&nbsp;URL:<%= childrenItem.Url%>&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </span>
-                                                <a href="#" class="btn btn-mini" data-bind="click:updateModel"><i class="icon-edit modifyModel"></i>修改 </a>
+                                                <a href="#" class="btn btn-mini modifyModel" ><i class="icon-edit modifyModel"></i>修改 </a>
                                                 &nbsp;
                                                 <a href="#" class="btn btn-mini deleteModel" ><i class="icon-trash deleteModel"></i>删除 </a>
                                             </li>
@@ -193,7 +193,7 @@
                 <label class="control-label">
                     是否启用</label>
                 <div class="controls">
-                    <input id="modelIsEnable_edit" type="checkbox" checked="checked" value='<%:ViewData["isCity"]%>' data-bind="checked:modelIsEnable" />
+                    <input id="modelIsEnable_edit" type="checkbox" checked="checked"  />
                 </div>
             </div>
         </div>

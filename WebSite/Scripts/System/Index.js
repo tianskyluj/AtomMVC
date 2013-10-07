@@ -12,7 +12,7 @@
 
         this.modelName = ko.observable($('#modelName_edit').val());
         this.modelUrl = ko.observable($('#modelUrl_edit').val());
-        this.modelIsEnable = ko.observable($('#modelIsEnable_edit').val() == 'True');
+        //this.modelIsEnable = ko.observable($('#modelIsEnable_edit').val() == 'True');
 
         // 点击更改按钮
         this.change = function () {
@@ -57,34 +57,32 @@
 
         // 保存模块更改
         this.saveModel = function () {
-            if (this.modelName().trim() == "") {
+            if ($('#modelName_edit').val().trim() == "") {
                 showError("请输入模块名称……");
                 return false;
             }
+            alert('faf');
             $.post(
                     '/SystemModel/SaveSystemModel',
                     {
-                        "name": this.modelName(),
+                        "name": $('#modelName_edit').val().trim(),
                         "url": this.modelUrl(),
                         "parentId": $('#parentModel').val(),
-                        "isEnabled": this.modelIsEnable()
+                        "isEnabled": $("#modelIsEnable_edit").attr("checked")
                     },
-                    function (result) { if (result == "1") { showSuccess("操作成功"); } else { showError("操作出错，请稍后再试或者联系系统管理员") } }
+                    function (result) { if (result == "1") { redirect('/System/Index'); alert("操作成功"); } else { showError("操作出错，请稍后再试或者联系系统管理员") } }
             );
             $("#addAndUpdateModel").modal("hide");
         }
 
         // 添加系统模块
         this.addModel = function () {
+            $('#modelName_edit').val('');
             $("#modelAddAndUpdateTitle").html("添加");
             $("#addAndUpdateModel").modal("show");
         }
 
-        // 修改系统模块
-        this.updateModel = function () {
-            $("#modelAddAndUpdateTitle").html("修改");
-            $("#addAndUpdateModel").modal("show");
-        }
+
 
         // 父节点下拉列表变化时兄弟节点下拉列表做相应变化
         $('#parentModel').change(function () {
@@ -111,6 +109,35 @@
             }
         }
     });
+
+    $(".modifyModel").bind({
+        click: function () {
+            $("#modelAddAndUpdateTitle").html("修改");
+            $.post(
+                    '/SystemModel/UpdateSystemModel',
+                    {
+                        "name": $(this).siblings('span').children('span').html()
+                    },
+                    function (result) {
+                        var entity = eval("(" + result + ")");
+                        $('#modelName_edit').val(entity.Name);
+                        $('#modelUrl_edit').val(entity.Url);
+                        $('#parentModel').val(entity.ParentId);
+                        alert(entity.IsEnabled);
+                        if (entity.IsEnabled == true) {
+                            alert('1');
+                            $('#modelIsEnable_edit').prop('checked', true);
+                        }
+                        else {
+                            alert('2');
+                            $('#modelIsEnable_edit').prop("checked", false);
+                        }
+                    }
+            );
+            $("#addAndUpdateModel").modal("show");
+        }
+    });
+
 });
 
 function parentModelChanged() {

@@ -6606,3 +6606,37 @@ QUERYSTRING:
    在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-10-07 16:16:28,059 [12] ERROR Logger [(null)] - not-null property references a null or transient valueDomain.SystemModel.Name
+SOURCE: NHibernate
+FORM: name=&url=&parentId=00000000-0000-0000-0000-000000000000&isEnabled=checked
+QUERYSTRING: 
+引发当前异常的原因: Void CheckNullability(System.Object[], NHibernate.Persister.Entity.IEntityPersister, Boolean)
+堆栈跟踪:    在 NHibernate.Engine.Nullability.CheckNullability(Object[] values, IEntityPersister persister, Boolean isUpdate)
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   在 NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   在 NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   在 NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   在 Spring.Data.NHibernate.SaveOrUpdateObjectHibernateCallback.DoInHibernate(ISession session)
+   在 Spring.Data.NHibernate.HibernateTemplate.Execute(IHibernateCallback action, Boolean exposeNativeSession)
+2013-10-07 16:16:45,344 [12] ERROR Logger [(null)] - not-null property references a null or transient valueDomain.SystemModel.Name
+SOURCE: NHibernate
+FORM: name=&url=&parentId=00000000-0000-0000-0000-000000000000&isEnabled=checked
+QUERYSTRING: 
+引发当前异常的原因: Void CheckNullability(System.Object[], NHibernate.Persister.Entity.IEntityPersister, Boolean)
+堆栈跟踪:    在 NHibernate.Engine.Nullability.CheckNullability(Object[] values, IEntityPersister persister, Boolean isUpdate)
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   在 NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   在 NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   在 NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   在 Spring.Data.NHibernate.SaveOrUpdateObjectHibernateCallback.DoInHibernate(ISession session)
+   在 Spring.Data.NHibernate.HibernateTemplate.Execute(IHibernateCallback action, Boolean exposeNativeSession)
