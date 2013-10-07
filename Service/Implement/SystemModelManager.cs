@@ -52,5 +52,28 @@ namespace Service.Implement
         { 
             
         }
+
+        /// <summary>
+        /// 根据父节点读取所有子模块
+        /// </summary>
+        /// <param name="systemModelID"></param>
+        /// <returns></returns>
+        public IList<SystemModel> LoadAllByParentID(Guid systemModelID)
+        {
+            return base.LoadAll().Where(f => f.ParentId == systemModelID).ToList();
+        }
+
+        /// <summary>
+        /// 根据富节点删除所有子节点
+        /// </summary>
+        /// <param name="parentID"></param>
+        public void DeleteAllChildrenModel(Guid parentID)
+        {
+            IList<SystemModel> systemModelList = this.LoadAllByParentID(parentID);
+            for (int i = 0; i < systemModelList.Count; i++)
+            {
+                base.Delete(systemModelList[i].ID);
+            }
+        }
     }
 }

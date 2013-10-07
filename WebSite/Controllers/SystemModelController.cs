@@ -47,6 +47,7 @@ namespace WebSite.Controllers
         public ActionResult DeleteSystemModel(SystemModel systemModel)
         {
             SystemModel modelObj = SystemModelManager.LoadAllByName(systemModel.Name);
+            SystemModelManager.DeleteAllChildrenModel(modelObj.ID);
             SystemModelManager.Delete(modelObj.ID);
 
             return Content("1");

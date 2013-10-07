@@ -33,5 +33,18 @@ namespace Service
         /// 加入新的系统模块后重置系统模块排序码
         /// </summary>
         void ResetOrderIndex();
+
+        /// <summary>
+        /// 根据父节点读取所有子模块
+        /// </summary>
+        /// <param name="systemModelID"></param>
+        /// <returns></returns>
+        IList<SystemModel> LoadAllByParentID(Guid systemModelID);
+
+        /// <summary>
+        /// 根据富节点删除所有子节点
+        /// </summary>
+        /// <param name="parentID"></param>
+        void DeleteAllChildrenModel(Guid parentID);
     }
 }
