@@ -123,13 +123,10 @@
                         $('#modelName_edit').val(entity.Name);
                         $('#modelUrl_edit').val(entity.Url);
                         $('#parentModel').val(entity.ParentId);
-                        alert(entity.IsEnabled);
                         if (entity.IsEnabled == true) {
-                            alert('1');
                             $('#modelIsEnable_edit').prop('checked', true);
                         }
                         else {
-                            alert('2');
                             $('#modelIsEnable_edit').prop("checked", false);
                         }
                     }
