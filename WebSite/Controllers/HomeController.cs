@@ -17,14 +17,11 @@ namespace WebSite.Controllers
     public class HomeController : Controller
     {
         public IUserInfoManager UserInfoManager { get; set; }
-
         public ICategoryManager CategoryManager { get; set; }
-
         public IForumManager ForumManager { get; set; }
-
         public IGlobalSettingManager GlobalSettingManager { get; set; }
-
         public IRegistrationManager RegistrationManager { get; set; }
+        public ISystemModelManager SystemModelManager { get; set; }
 
         public ActionResult Index()
         {
@@ -37,6 +34,8 @@ namespace WebSite.Controllers
                 string avatarString = UserInfoManager.GetUserAvatar();
                 ViewData["avatar"] = avatarString == "" ? "../../Upload/Avatar/DefaultAvatar.jpg" : avatarString;
                 ViewData["visible"] = UserInfoManager.GetUserSession().IsAdmin;
+                // 侧边栏加载系统模块菜单
+                ViewData["SystemModel"] = SystemModelManager.LoadAll();
 
                 // 显示签到按钮操作
                 Registration registrationObj = RegistrationManager.GetDayRegistration(UserInfoManager.GetUserSession().ID, DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);

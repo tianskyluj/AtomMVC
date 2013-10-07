@@ -7,6 +7,7 @@
 		<property name="ForumManager" ref="Manager.Forum"/>
 		<property name="GlobalSettingManager" ref="Manager.GlobalSetting"/>
 		<property name="RegistrationManager" ref="Manager.Registration"/>
+    <property name="SystemModelManager" ref="Manager.SystemModel"/>
 	</object>
 
 	<object type="WebSite.Controllers.UserInfoController, WebSite" singleton="false" >

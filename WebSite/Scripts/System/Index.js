@@ -65,9 +65,9 @@
                     '/SystemModel/SaveSystemModel',
                     {
                         "name": $('#modelName_edit').val().trim(),
-                        "url": this.modelUrl(),
+                        "url": $('#modelUrl_edit').val().trim(),
                         "parentId": $('#parentModel').val(),
-                        "isEnabled": $("#modelIsEnable_edit").attr("checked")
+                        "isEnabled": $("#modelIsEnable_edit").prop("checked")
                     },
                     function (result) { if (result == "1") { redirect('/System/Index'); alert("操作成功"); } else { showError("操作出错，请稍后再试或者联系系统管理员") } }
             );
