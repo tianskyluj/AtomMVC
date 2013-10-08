@@ -6784,3 +6784,54 @@ QUERYSTRING:
    在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-10-08 11:33:54,757 [4] ERROR NHibernate.Cfg.Configuration [(null)] - Could not compile the mapping document: Domain.Province.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: Domain.Province.hbm.xml ---> NHibernate.DuplicateMappingException: Duplicate class/entity mapping Domain.UserInfo
+   在 NHibernate.Cfg.Mappings.AddClass(PersistentClass persistentClass)
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema)
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName)
+   --- 内部异常堆栈跟踪的结尾 ---
+2013-10-08 11:34:19,603 [9] ERROR NHibernate.Cfg.Configuration [(null)] - Could not compile the mapping document: Domain.Province.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: Domain.Province.hbm.xml ---> NHibernate.DuplicateMappingException: Duplicate class/entity mapping Domain.UserInfo
+   在 NHibernate.Cfg.Mappings.AddClass(PersistentClass persistentClass)
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema)
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName)
+   --- 内部异常堆栈跟踪的结尾 ---
+2013-10-08 11:34:19,840 [9] ERROR Logger [(null)] - Duplicate class/entity mapping Domain.UserInfo
+SOURCE: NHibernate
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: Void AddClass(NHibernate.Mapping.PersistentClass)
+堆栈跟踪:    在 NHibernate.Cfg.Mappings.AddClass(PersistentClass persistentClass)
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas)
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema)
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName)
+2013-10-08 11:50:43,271 [10] ERROR Logger [(null)] - Could not find a getter for property 'CityName' in class 'Domain.Department'
+SOURCE: NHibernate
+FORM: 
+QUERYSTRING: 
+引发当前异常的原因: NHibernate.Properties.IGetter GetGetter(System.Type, System.String)
+堆栈跟踪:    在 NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   在 NHibernate.Mapping.Property.GetGetter(Type clazz)
+   在 NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   在 NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   在 NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   在 NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   在 NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   在 NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   在 NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   在 NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   在 NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   在 NHibernate.Cfg.Configuration.BuildSessionFactory()
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.NewSessionFactory(Configuration config)
+   在 Spring.Data.NHibernate.LocalSessionFactoryObject.AfterPropertiesSet()
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InvokeInitMethods(Object target, String name, IConfigurableObjectDefinition definition)
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ConfigureObject(String name, RootObjectDefinition definition, IObjectWrapper wrapper)
+   在 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject(String name, RootObjectDefinition definition, Object[] arguments, Boolean allowEagerCaching, Boolean suppressConfigure)

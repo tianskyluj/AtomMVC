@@ -48,6 +48,16 @@
     <Compile Include="UserInfo.cs" />
     <Compile Include="GlobalSetting.cs" />
     <Compile Include="SystemModel.cs" />
+    <Compile Include="Province.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="RoleProvince.cs" />
+    <Compile Include="RoleCity.cs" />
+    <Compile Include="RoleRegion.cs" />
+    <Compile Include="RoleDepartment.cs" />
+    <Compile Include="RoleUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UserInfo.hbm.xml" />
@@ -71,6 +81,36 @@
     <EmbeddedResource Include="Registration.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Province.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="City.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Region.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Department.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Role.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RoleProvince.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RoleCity.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RoleRegion.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RoleDepartment.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RoleUser.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

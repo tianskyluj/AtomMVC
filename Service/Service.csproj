@@ -52,6 +52,16 @@
     <Compile Include="Implement\ArticleManager.cs" />
     <Compile Include="Implement\GlobalSettingManager.cs" />
     <Compile Include="Implement\SystemModelManager.cs" />
+    <Compile Include="Implement\ProvinceManager.cs" />
+    <Compile Include="Implement\CityManager.cs" />
+    <Compile Include="Implement\RegionManager.cs" />
+    <Compile Include="Implement\DepartmentManager.cs" />
+    <Compile Include="Implement\RoleManager.cs" />
+    <Compile Include="Implement\RoleProvinceManager.cs" />
+    <Compile Include="Implement\RoleCityManager.cs" />
+    <Compile Include="Implement\RoleRegionManager.cs" />
+    <Compile Include="Implement\RoleDepartmentManager.cs" />
+    <Compile Include="Implement\RoleUserManager.cs" />
     <Compile Include="IRegistrationManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -62,6 +72,16 @@
     <Compile Include="IArticleManager.cs" />
     <Compile Include="IGlobalSettingManager.cs" />
     <Compile Include="ISystemModelManager.cs" />
+    <Compile Include="IProvinceManager.cs" />
+    <Compile Include="ICityManager.cs" />
+    <Compile Include="IRegionManager.cs" />
+    <Compile Include="IDepartmentManager.cs" />
+    <Compile Include="IRoleManager.cs" />
+    <Compile Include="IRoleProvinceManager.cs" />
+    <Compile Include="IRoleCityManager.cs" />
+    <Compile Include="IRoleRegionManager.cs" />
+    <Compile Include="IRoleDepartmentManager.cs" />
+    <Compile Include="IRoleUserManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

@@ -29,5 +29,45 @@
 		<property name="HibernateTemplate" ref="HibernateTemplate"/>
 	</object>
 
+  <object id="Repository.Province" type="Dao.Implement.ProvinceRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.City" type="Dao.Implement.CityRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.Region" type="Dao.Implement.RegionRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.Department" type="Dao.Implement.DepartmentRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.Role" type="Dao.Implement.RoleRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.RoleProvince" type="Dao.Implement.RoleProvinceRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.RoleCity" type="Dao.Implement.RoleCityRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.RoleRegion" type="Dao.Implement.RoleRegionRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.RoleDepartment" type="Dao.Implement.RoleDepartmentRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.RoleUser" type="Dao.Implement.RoleUserRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
 </objects>
 

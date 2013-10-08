@@ -57,5 +57,85 @@
 		</property>
 	</object>
 
+  <object id="Manager.Province" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.ProvinceManager, Service">
+        <property name="CurrentRepository" ref="Repository.Province"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.City" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.CityManager, Service">
+        <property name="CurrentRepository" ref="Repository.City"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.Region" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.RegionManager, Service">
+        <property name="CurrentRepository" ref="Repository.Region"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.Department" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.DepartmentManager, Service">
+        <property name="CurrentRepository" ref="Repository.Department"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.Role" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.RoleManager, Service">
+        <property name="CurrentRepository" ref="Repository.Role"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.RoleProvince" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.RoleProvinceManager, Service">
+        <property name="CurrentRepository" ref="Repository.RoleProvince"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.RoleCity" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.RoleCityManager, Service">
+        <property name="CurrentRepository" ref="Repository.RoleCity"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.RoleRegion" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.RoleRegionManager, Service">
+        <property name="CurrentRepository" ref="Repository.RoleRegion"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.RoleDepartment" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.RoleDepartmentManager, Service">
+        <property name="CurrentRepository" ref="Repository.RoleDepartment"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.RoleUser" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.RoleUserManager, Service">
+        <property name="CurrentRepository" ref="Repository.RoleUser"/>
+      </object>
+    </property>
+  </object>
+
 </objects>
 

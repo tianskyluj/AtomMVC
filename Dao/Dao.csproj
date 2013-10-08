@@ -74,6 +74,16 @@
     <Compile Include="Implement\GlobalSettingRepository.cs" />
     <Compile Include="Implement\SystemModelRepository.cs" />
     <Compile Include="Implement\RegistrationRepository.cs" />
+    <Compile Include="Implement\ProvinceRepository.cs" />
+    <Compile Include="Implement\CityRepository.cs" />
+    <Compile Include="Implement\RegionRepository.cs" />
+    <Compile Include="Implement\DepartmentRepository.cs" />
+    <Compile Include="Implement\RoleRepository.cs" />
+    <Compile Include="Implement\RoleProvinceRepository.cs" />
+    <Compile Include="Implement\RoleCityRepository.cs" />
+    <Compile Include="Implement\RoleRegionRepository.cs" />
+    <Compile Include="Implement\RoleDepartmentRepository.cs" />
+    <Compile Include="Implement\RoleUserRepository.cs" />
     <Compile Include="IRepository`1.cs" />
     <Compile Include="IUserInfoRepository.cs" />
     <Compile Include="RepositoryBase`1.cs" />
@@ -84,6 +94,16 @@
     <Compile Include="IGlobalSettingRepository.cs" />
     <Compile Include="ISystemModelRepository.cs" />
     <Compile Include="IRegistrationRepository.cs" />
+    <Compile Include="IProvinceRepository.cs" />
+    <Compile Include="ICityRepository.cs" />
+    <Compile Include="IRegionRepository.cs" />
+    <Compile Include="IDepartmentRepository.cs" />
+    <Compile Include="IRoleRepository.cs" />
+    <Compile Include="IRoleProvinceRepository.cs" />
+    <Compile Include="IRoleCityRepository.cs" />
+    <Compile Include="IRoleRegionRepository.cs" />
+    <Compile Include="IRoleDepartmentRepository.cs" />
+    <Compile Include="IRoleUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
