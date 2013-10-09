@@ -155,7 +155,7 @@ $(function () {
     var oTable;
 
     /* Add a click handler to the rows - this could be used as a callback */
-    $("#provinceListTable tbody").on('click', 'tr', function (e) {                  // 修改表格名称
+    $("#cityListTable tbody").on('click', 'tr', function (e) {                  // 修改表格名称
         if ($(this).hasClass('info')) {
             $(this).removeClass('info').removeClass('text-success');                                     // 修改隐藏ID名称
         }
@@ -166,7 +166,7 @@ $(function () {
     });
 
     /* Init the table */
-    oTable = $('#provinceListTable').dataTable({                                    // 修改表格名称
+    oTable = $('#cityListTable').dataTable({                                    // 修改表格名称
         "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
         "sPaginationType": "bootstrap",
         "oLanguage": {
@@ -194,69 +194,70 @@ $(function () {
 
 
 
-    $('#provinceListTable .toggle-checkboxes').click(function () {              // 修改表格名称
-        var $checkbox = $("#provinceListTable").find('.checkbox');              // 修改表格名称
+    $('#cityListTable .toggle-checkboxes').click(function () {              // 修改表格名称
+        var $checkbox = $("#cityListTable").find('.checkbox');              // 修改表格名称
         if ($(this).is(':checked')) {
             $checkbox.prop('checked', true);
             $checkbox.each(function () { $(this).parent().parent('tr').addClass('info').addClass('text-success'); });
-            $("#delete-row-province").removeClass("disabled");           // 修改删除按钮名称
-            var checkedNum = $('#provinceListTable .checkbox').length
-            $('#provinceCheckedNum').val(checkedNum); // 修改表格名称
+            $("#delete-row-city").removeClass("disabled");           // 修改删除按钮名称
+            var checkedNum = $('#cityListTable .checkbox').length
+            $('#cityCheckedNum').val(checkedNum); // 修改表格名称
 
         } else {
             $checkbox.prop('checked', false);
             $checkbox.each(function () { $(this).parent().parent('tr').removeClass('info').removeClass('text-success'); });
-            $("#delete-row-province").addClass("disabled");                 // 修改删除按钮名称
-            $('#provinceCheckedNum').val(0); // 修改表格名称
+            $("#delete-row-city").addClass("disabled");                 // 修改删除按钮名称
+            $('#cityCheckedNum').val(0); // 修改表格名称
         }
     });
 
-    $('#provinceListTable .checkbox').click(function () {                       // 修改表格名称
-        var checkedNum = parseInt($('#provinceCheckedNum').val());              // 修改表格名称
+    $('#cityListTable .checkbox').click(function () {                       // 修改表格名称
+        var checkedNum = parseInt($('#cityCheckedNum').val());              // 修改表格名称
         if ($(this).is(':checked')) {
             checkedNum++;
         }
         else {
             checkedNum--;
         }
-        $('#provinceCheckedNum').val(checkedNum);                               // 修改表格名称
+        $('#cityCheckedNum').val(checkedNum);                               // 修改表格名称
         if (checkedNum == 0) {
-            $("#delete-row-province").addClass("disabled");                     // 修改表格名称
+            $("#delete-row-city").addClass("disabled");                     // 修改表格名称
         }
         else {
-            $("#delete-row-province").removeClass("disabled");                  // 修改表格名称
+            $("#delete-row-city").removeClass("disabled");                  // 修改表格名称
         }
     });
 
-    $('#add-row-province').click(function () {                                   // 修改表格名称
-        $('#provinceName_edit').val('');                                          // 修改表格名称   
-        $('#provinceID').val('0');
-        $("#provinceAddOrUpdateTitle").html("添加省份");                             // 修改表格名称
-        $("#addAndUpdateProvince").modal("show");                                // 修改表格名称
+    $('#add-row-city').click(function () {                                   // 修改表格名称
+        $('#cityName_edit').val('');                                          // 修改表格名称   
+        $('#cityID').val('0');
+        $("#cityAddOrUpdateTitle").html("添加地市");                             // 修改表格名称
+        $("#addAndUpdateCity").modal("show");                                // 修改表格名称
     });
 
-    $('#provinceListTable .modify').click(function () {                          // 修改表格名称
-        $("#provinceAddOrUpdateTitle").html("修改省份");                           // 修改表格名称
-        $('#provinceID').val($(this).attr('value'));
-        $('#provinceIdd').html($(this).attr('value'));
+    $('#cityListTable .modify').click(function () {                          // 修改表格名称
+        $("#cityAddOrUpdateTitle").html("修改地市");                           // 修改表格名称
+        $('#cityID').val($(this).attr('value'));
+        $('#cityIdd').html($(this).attr('value'));
         $.post(
-                '/Province/UpdateProvince',
+                '/City/UpdateCity',
                 {
                     "id": $(this).attr('value')
                 },
                 function (result) {
+                    alert(result);
                     var entity = eval("(" + result + ")");
-                    $('#provinceName_edit').val(entity.ProvinceName);
+                    $('#cityName_edit').val(entity.CityName);
                 }
             );
-        $("#addAndUpdateProvince").modal("show");
+        $("#addAndUpdateCity").modal("show");
     });
 
     // 删除记录
-    $('#provinceListTable .delete').click(function () {                              // 修改表格名称
+    $('#cityListTable .delete').click(function () {                              // 修改表格名称
         if (confirm('确认删除该记录么')) {
             $.post(
-                    '/Province/DeleteProvince',                                               // 修改表格名称
+                    '/City/DeleteCity',                                               // 修改表格名称
                     {
                     "id": $(this).attr('value')
                 },
@@ -266,12 +267,12 @@ $(function () {
     });
 
     // 批量删除
-    $('#delete-row-province').click(function () {
+    $('#delete-row-city').click(function () {
         var ifSelected = false;
-        $("#provinceListTable .checkbox").each(function () {
+        $("#cityListTable .checkbox").each(function () {
             if ($(this).is(':checked')) {
                 $.post(
-                            '/Province/DeleteProvince',                                               // 修改表格名称
+                            '/City/DeleteCity',                                               // 修改表格名称
                             {
                             "id": $(this).attr('value')
                         }
@@ -286,20 +287,21 @@ $(function () {
         return ifSelected;
     });
 
-    // 保存省份信息
-    $('#saveProvince').click(function () {                                            // 修改表格名称
-        if ($('#provinceName_edit').val().trim() == '') {
-            showError('省份名称不能为空');
+    // 保存地市信息
+    $('#saveCity').click(function () {                                            // 修改表格名称
+        if ($('#cityName_edit').val().trim() == '') {
+            showError('地市名称不能为空');
             return false;
         }
         $.post(
-                '/Province/SaveProvince',                                               // 修改表格名称
+                '/City/SaveCity',                                               // 修改表格名称
                 {
-                "id": $('#provinceIdd').html(),
+                "id": $('#cityIdd').html(),
                 "isEnabled": true,
-                "provinceName": $('#provinceName_edit').val().trim()                // 修改表格名称
+                "provinceID": $('#provinceAttrCity').val(),
+                "cityName": $('#cityName_edit').val().trim()                // 修改表格名称
             },
-                function (result) { if (result == "1") { $("#addAndUpdateProvince").modal("hide"); redirect('/System/Index'); alert("操作成功"); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
+                function (result) { if (result == "1") { $("#addAndUpdateCity").modal("hide"); redirect('/System/Index'); alert("操作成功"); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
         );
     });
 });

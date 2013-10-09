@@ -18,6 +18,7 @@
 		<property name="GlobalSettingManager" ref="Manager.GlobalSetting"/>
 		<property name="SystemModelManager" ref="Manager.SystemModel"/>
     <property name="ProvinceManager" ref="Manager.Province"/>
+    <property name="CityManager" ref="Manager.City"/>
 	</object>
 
 	<object type="WebSite.Controllers.SystemModelController, WebSite" singleton="false" >
@@ -45,6 +46,11 @@
 	</object>
 
   <object type="WebSite.Controllers.ProvinceController, WebSite" singleton="false" >
+    <property name="ProvinceManager" ref="Manager.Province"/>
+  </object>
+
+  <object type="WebSite.Controllers.CityController, WebSite" singleton="false" >
+    <property name="CityManager" ref="Manager.City"/>
     <property name="ProvinceManager" ref="Manager.Province"/>
   </object>
 
