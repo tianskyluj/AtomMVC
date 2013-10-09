@@ -99,22 +99,16 @@
                                     <% foreach (var item in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == new Guid()).OrderBy(f => f.OrderIndex))
                                        { %>
                                     <li>
-                                        <span class="badge badge-success">
-                                            <i class="icon-calendar"></i><span><%= item.Name %></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </span>
-                                        <a href="#" class="btn btn-mini modifyModel" ><i class="icon-edit modifyModel"></i>修改 </a>
-                                        &nbsp;
-                                        <a href="#" class="btn btn-mini deleteModel" ><i class="icon-trash deleteModel"></i>删除 </a>
+                                        <span class="badge badge-success"><i class="icon-calendar"></i><span><%= item.Name %></span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                                        <a href="#" class="btn btn-mini modifyModel"><i class="icon-edit modifyModel"></i>修改 </a>&nbsp; 
+                                        <a href="#" class="btn btn-mini deleteModel"><i class="icon-trash deleteModel"></i>删除 </a>
                                         <ul>
                                             <% foreach (var childrenItem in (this.ViewData["SystemModel"] as IList<Domain.SystemModel>).Where(f => f.ParentId == item.ID).OrderBy(f => f.OrderIndex))
                                                {  %>
                                             <li>
-                                                <span>
-                                                    <i class="icon-minus-sign"></i><span><%= childrenItem.Name%></span>&nbsp;URL:<%= childrenItem.Url%>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </span>
-                                                <a href="#" class="btn btn-mini modifyModel" ><i class="icon-edit modifyModel"></i>修改 </a>
-                                                &nbsp;
-                                                <a href="#" class="btn btn-mini deleteModel" ><i class="icon-trash deleteModel"></i>删除 </a>
+                                                <span><i class="icon-minus-sign"></i><span><%= childrenItem.Name%></span>&nbsp;URL:<%= childrenItem.Url%>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                <a href="#" class="btn btn-mini modifyModel"><i class="icon-edit modifyModel"></i>修改 </a>&nbsp; 
+                                                <a href="#" class="btn btn-mini deleteModel"><i class="icon-trash deleteModel"></i>删除 </a>
                                             </li>
                                             <% } %>
                                         </ul>
@@ -124,6 +118,73 @@
                             </div>
                         </div>
                         <div class="tab-pane fade " id="province">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="social-box">
+                                        <div class="header">
+                                            <div class="btn-group hidden-phone">
+                                                <a class="btn btn-primary" id="add-row-province" href="#"><i class="icon-plus"></i>添加 </a>
+                                                <a class="btn btn-danger disabled" href="#" id="delete-row-province"><i class="icon-trash"></i>批量删除 </a>
+                                                <input style="visibility:hidden" id="provinceID"  />
+                                                <input style="visibility:hidden" id="provinceCheckedNum" value="0" />
+                                                <span style="visibility:hidden" id="provinceIdd"></span>
+                                            </div>
+                                            <div class="tools">
+                                                <a class="btn btn-success btn-advanced" id="btn-advanced" href="javascript:void(0)"
+                                                    data-toggle="collapse" data-target="#advanced-search"><i class="icon-filter"></i>
+                                                    高级查询 </a>
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-cog"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#">打印</a></li>
+                                                        <li><a href="#">保存至PDF</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">导出EXCEL</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                                                id="provinceListTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <input type="checkbox" class="toggle-checkboxes" />
+                                                        </th>
+                                                        <th>
+                                                            操作
+                                                        </th>
+                                                        <th>
+                                                            省份
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% foreach (var item in (this.ViewData["Province"] as IList<Domain.Province>).OrderBy(f => f.ProvinceName))
+                                                       { %>
+                                                    <tr class="gradeX">
+                                                        <td>
+                                                            <input type="checkbox" class="checkbox" value='<%= item.ID%>'/>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-success btn-mini modify" href="#" value='<%= item.ID%>'><i class="icon-edit"></i>修改 </a>
+                                                            <a class="btn btn-danger btn-mini delete" href="#" value='<%= item.ID%>'><i class="icon-delete"></i>删除 </a>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.ProvinceName%>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                     <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade " id="city">
                         </div>
@@ -202,10 +263,32 @@
             <a class="btn btn-primary" id="saveModel"  data-bind="click:saveModel">保存</a>
         </div>
     </aside>
+    <!-- 省份添加修改弹出框 -->
+    <aside id="addAndUpdateProvince" class="modal hide fade" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="provinceAddOrUpdateTitle"><span id="Span1">添加</span></h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label">
+                    省份</label>
+                <div class="controls">
+                     <input id="provinceName_edit" type="text" class="input-xlarge" placeholder="填写省份" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+            <a class="btn btn-primary" id="saveProvince">保存</a>
+        </div>
+    </aside>
     <div style="visibility: hidden">
         <input data-bind="value:companyName" />
     </div>
 </body>
 <script src="../../Scripts/System/Index.js"></script>
+<script src="../../Scripts/System/Province.js"></script>
 <script src="../../assets/js/bootstrap-tree.js"></script>
 </html>

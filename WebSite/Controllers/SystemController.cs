@@ -12,6 +12,7 @@ namespace WebSite.Controllers
     {
         public IGlobalSettingManager GlobalSettingManager { get; set; }
         public ISystemModelManager SystemModelManager { get; set; }
+        public IProvinceManager ProvinceManager { get; set; }
         //
         // GET: /System/
 
@@ -23,6 +24,7 @@ namespace WebSite.Controllers
             ViewData["isRegion"] = GlobalSettingManager.GetGlobalCache().IsRegion;
             ViewData["isDepartment"] = GlobalSettingManager.GetGlobalCache().IsDepartment;
             ViewData["SystemModel"] = SystemModelManager.LoadAll();
+            ViewData["Province"] = ProvinceManager.LoadAll();
             ViewData["NullGuid"] = new Guid();
             return View();
         }

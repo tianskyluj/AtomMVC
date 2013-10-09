@@ -17,6 +17,7 @@
 	<object type="WebSite.Controllers.SystemController, WebSite" singleton="false" >
 		<property name="GlobalSettingManager" ref="Manager.GlobalSetting"/>
 		<property name="SystemModelManager" ref="Manager.SystemModel"/>
+    <property name="ProvinceManager" ref="Manager.Province"/>
 	</object>
 
 	<object type="WebSite.Controllers.SystemModelController, WebSite" singleton="false" >
@@ -42,6 +43,10 @@
 		<property name="CategoryManager" ref="Manager.Category"/>
 		<property name="ForumManager" ref="Manager.Forum"/>
 	</object>
+
+  <object type="WebSite.Controllers.ProvinceController, WebSite" singleton="false" >
+    <property name="ProvinceManager" ref="Manager.Province"/>
+  </object>
 
 	<object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />
 

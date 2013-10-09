@@ -112,6 +112,7 @@
     <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\SystemModelController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
+    <Compile Include="Controllers\ProvincelController.cs" />
     <Compile Include="Core\LocalizationHelpers.cs" />
     <Compile Include="Core\UserPathFckProvider.cs" />
     <Compile Include="Global.asax.cs">
@@ -688,6 +689,7 @@
     <Content Include="Scripts\Account\Index.js" />
     <Content Include="Scripts\Home\Login.js" />
     <Content Include="Scripts\System\Index.js" />
+    <Content Include="Scripts\System\Province.js" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Article\Admin.aspx" />
     <Content Include="Views\Article\Get.aspx" />
