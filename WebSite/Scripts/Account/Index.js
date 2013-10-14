@@ -55,5 +55,6 @@
     }
 
     // 注册用户模型
-    ko.applyBindings(new profileViewModel());
+    ko.cleanNode(document.body);
+    ko.applyBindings(new profileViewModel(), document.body);
 });

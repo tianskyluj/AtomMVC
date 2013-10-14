@@ -64,3 +64,5 @@ C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Domain.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\obj\Debug\Dao.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\obj\Debug\Dao.pdb
+C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Newtonsoft.Json.xml

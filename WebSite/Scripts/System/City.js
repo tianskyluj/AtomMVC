@@ -245,9 +245,9 @@ $(function () {
                     "id": $(this).attr('value')
                 },
                 function (result) {
-                    alert(result);
                     var entity = eval("(" + result + ")");
                     $('#cityName_edit').val(entity.CityName);
+                    $('#provinceAttrCity').val(entity.Province.ID);
                 }
             );
         $("#addAndUpdateCity").modal("show");

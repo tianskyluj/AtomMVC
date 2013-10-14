@@ -2,7 +2,7 @@
 using System.Text;
 using System.Security.Cryptography;
 
-namespace AtomOA.Common.DEncrypt
+namespace Atom.Common.DEncrypt
 {
     public class HashEncode
     {
@@ -49,6 +49,11 @@ namespace AtomOA.Common.DEncrypt
                 Security += (int)o + "O";
             }
             return Security;
+        }
+
+        public static string HashCode(string key)
+        {
+            return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(key, "MD5");
         }
     }
 }

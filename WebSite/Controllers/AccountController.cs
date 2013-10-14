@@ -75,5 +75,47 @@ namespace WebSite.Controllers
             return Content("1");
             
         }
+
+        /// <summary>
+        /// 保存或者更新系统用户
+        /// </summary>
+        /// <param name="globalModel"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult SaveSysUser(UserInfo userInfo)
+        {
+            if (userInfo.ID == new Guid())
+                userInfo.ID = Guid.NewGuid();
+            userInfo.CreateTime = DateTime.Now;
+            userInfo.UpdateTime = DateTime.Now;
+            userInfo.Password = Atom.Common.DEncrypt.HashEncode.HashCode(userInfo.Account.ToUpper() + "123456" + userInfo.CreateTime.ToLongDateString());
+            UserInfoManager.SaveOrUpdate(userInfo);
+
+            return Content("1");
+        }
+
+        /// <summary>
+        /// 删除模块
+        /// </summary>
+        /// <param name="globalModel"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult DeleteSysUser(UserInfo userInfo)
+        {
+            UserInfoManager.Delete(userInfo.ID);
+
+            return Content("1");
+        }
+
+        /// <summary>
+        /// 修改模块，返回待修改模块的相关数据
+        /// </summary>
+        /// <param name="globalModel"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult UpdateSysUser(UserInfo userInfo)
+        {
+            return Content(Atom.Common.JsonHelper.GetJson<UserInfo>(UserInfoManager.LoadAll().FirstOrDefault(f => f.ID == userInfo.ID)));
+        }
     }
 }

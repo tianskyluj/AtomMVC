@@ -114,6 +114,9 @@
     <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Controllers\ProvincelController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Core\LocalizationHelpers.cs" />
     <Compile Include="Core\UserPathFckProvider.cs" />
     <Compile Include="Global.asax.cs">
@@ -692,6 +695,10 @@
     <Content Include="Scripts\System\Index.js" />
     <Content Include="Scripts\System\Province.js" />
     <Content Include="Scripts\System\City.js" />
+    <Content Include="Scripts\System\Region.js" />
+    <Content Include="Scripts\System\Department.js" />
+    <Content Include="Scripts\System\Role.js" />
+    <Content Include="Scripts\System\SysUser.js" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Article\Admin.aspx" />
     <Content Include="Views\Article\Get.aspx" />

@@ -14,6 +14,11 @@ namespace WebSite.Controllers
         public ISystemModelManager SystemModelManager { get; set; }
         public IProvinceManager ProvinceManager { get; set; }
         public ICityManager CityManager { get; set; }
+        public IRegionManager RegionManager { get; set; }
+        public IDepartmentManager DepartmentManager { get; set; }
+        public IRoleManager RoleManager { get; set; }
+        public IUserInfoManager UserInfoManager { get; set; }
+
         //
         // GET: /System/
 
@@ -27,6 +32,10 @@ namespace WebSite.Controllers
             ViewData["SystemModel"] = SystemModelManager.LoadAll();
             ViewData["Province"] = ProvinceManager.LoadAll();
             ViewData["City"] = CityManager.LoadAll();
+            ViewData["Region"] = RegionManager.LoadAll();
+            ViewData["Department"] = DepartmentManager.LoadAll();
+            ViewData["Role"] = RoleManager.LoadAll();
+            ViewData["SysUser"] = UserInfoManager.LoadAll();
             ViewData["NullGuid"] = new Guid();
             return View();
         }

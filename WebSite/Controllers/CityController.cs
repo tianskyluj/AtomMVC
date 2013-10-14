@@ -58,7 +58,7 @@ namespace WebSite.Controllers
         [HttpPost]
         public ActionResult UpdateCity(City city)
         {
-            return Content(Atom.Common.JsonHelper.GetJson<City>(CityManager.LoadAll().FirstOrDefault(f => f.ID == city.ID)));
+            return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet<City>(CityManager.LoadAll().FirstOrDefault(f => f.ID == city.ID)));
         }
     }
 }

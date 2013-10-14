@@ -261,12 +261,296 @@
                             </div>
                         </div>
                         <div class="tab-pane fade " id="region">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="social-box">
+                                        <div class="header">
+                                            <div class="btn-group hidden-phone">
+                                                <a class="btn btn-primary" id="add-row-region" href="#"><i class="icon-plus"></i>添加 </a>
+                                                <a class="btn btn-danger disabled" href="#" id="delete-row-region"><i class="icon-trash"></i>批量删除 </a>
+                                                <input style="visibility:hidden" id="regionID"  />
+                                                <input style="visibility:hidden" id="regionCheckedNum" value="0" />
+                                                <span style="visibility:hidden" id="regionIdd"></span>
+                                            </div>
+                                            <div class="tools">
+                                                <a class="btn btn-success btn-advanced" id="A4" href="javascript:void(0)"
+                                                    data-toggle="collapse" data-target="#advanced-search"><i class="icon-filter"></i>
+                                                    高级查询 </a>
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-cog"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#">打印</a></li>
+                                                        <li><a href="#">保存至PDF</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">导出EXCEL</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                                                id="regionListTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <input type="checkbox" class="toggle-checkboxes" />
+                                                        </th>
+                                                        <th>
+                                                            操作
+                                                        </th>
+                                                        <th>
+                                                            区域
+                                                        </th>
+                                                        <th>
+                                                            所属地市
+                                                        </th>
+                                                        <th>
+                                                            所属省份
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% foreach (var item in (this.ViewData["Region"] as IList<Domain.Region>).OrderBy(f => f.RegionName))
+                                                       { %>
+                                                    <tr class="gradeX">
+                                                        <td>
+                                                            <input type="checkbox" class="checkbox" value='<%= item.ID%>'/>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-success btn-mini modify" href="#" value='<%= item.ID%>'><i class="icon-edit"></i>修改 </a>
+                                                            <a class="btn btn-danger btn-mini delete" href="#" value='<%= item.ID%>'><i class="icon-delete"></i>删除 </a>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.RegionName%>
+                                                        </td>
+                                                         <td>
+                                                            <%= item.City.CityName%>
+                                                        </td>
+                                                         <td>
+                                                            <%= item.Province.ProvinceName%>
+                                                        </td>
+                                                    </tr>
+                                                     <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade " id="department">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="social-box">
+                                        <div class="header">
+                                            <div class="btn-group hidden-phone">
+                                                <a class="btn btn-primary" id="add-row-department" href="#"><i class="icon-plus"></i>添加 </a>
+                                                <a class="btn btn-danger disabled" href="#" id="delete-row-department"><i class="icon-trash"></i>批量删除 </a>
+                                                <input style="visibility:hidden" id="departmentID"  />
+                                                <input style="visibility:hidden" id="departmentCheckedNum" value="0" />
+                                                <span style="visibility:hidden" id="departmentIdd"></span>
+                                            </div>
+                                            <div class="tools">
+                                                <a class="btn btn-success btn-advanced" id="A5" href="javascript:void(0)"
+                                                    data-toggle="collapse" data-target="#advanced-search"><i class="icon-filter"></i>
+                                                    高级查询 </a>
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-cog"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#">打印</a></li>
+                                                        <li><a href="#">保存至PDF</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">导出EXCEL</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                                                id="departmentListTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <input type="checkbox" class="toggle-checkboxes" />
+                                                        </th>
+                                                        <th>
+                                                            操作
+                                                        </th>
+                                                        <th>
+                                                            部门
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% foreach (var item in (this.ViewData["Department"] as IList<Domain.Department>).OrderBy(f => f.DepartmentName))
+                                                       { %>
+                                                    <tr class="gradeX">
+                                                        <td>
+                                                            <input type="checkbox" class="checkbox" value='<%= item.ID%>'/>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-success btn-mini modify" href="#" value='<%= item.ID%>'><i class="icon-edit"></i>修改 </a>
+                                                            <a class="btn btn-danger btn-mini delete" href="#" value='<%= item.ID%>'><i class="icon-delete"></i>删除 </a>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.DepartmentName%>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                     <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade " id="role">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="social-box">
+                                        <div class="header">
+                                            <div class="btn-group hidden-phone">
+                                                <a class="btn btn-primary" id="add-row-role" href="#"><i class="icon-plus"></i>添加 </a>
+                                                <a class="btn btn-danger disabled" href="#" id="delete-row-role"><i class="icon-trash"></i>批量删除 </a>
+                                                <input style="visibility:hidden" id="roleID"  />
+                                                <input style="visibility:hidden" id="roleCheckedNum" value="0" />
+                                                <span style="visibility:hidden" id="roleIdd"></span>
+                                            </div>
+                                            <div class="tools">
+                                                <a class="btn btn-success btn-advanced" id="A6" href="javascript:void(0)"
+                                                    data-toggle="collapse" data-target="#advanced-search"><i class="icon-filter"></i>
+                                                    高级查询 </a>
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-cog"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#">打印</a></li>
+                                                        <li><a href="#">保存至PDF</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">导出EXCEL</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                                                id="roleListTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <input type="checkbox" class="toggle-checkboxes" />
+                                                        </th>
+                                                        <th>
+                                                            操作
+                                                        </th>
+                                                        <th>
+                                                            角色
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% foreach (var item in (this.ViewData["Role"] as IList<Domain.Role>).OrderBy(f => f.RoleName))
+                                                       { %>
+                                                    <tr class="gradeX">
+                                                        <td>
+                                                            <input type="checkbox" class="checkbox" value='<%= item.ID%>'/>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-success btn-mini modify" href="#" value='<%= item.ID%>'><i class="icon-edit"></i>修改 </a>
+                                                            <a class="btn btn-danger btn-mini delete" href="#" value='<%= item.ID%>'><i class="icon-delete"></i>删除 </a>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.RoleName%>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                     <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade " id="user">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="social-box">
+                                        <div class="header">
+                                            <div class="btn-group hidden-phone">
+                                                <a class="btn btn-primary" id="add-row-sysUser" href="#"><i class="icon-plus"></i>添加 </a>
+                                                <a class="btn btn-danger disabled" href="#" id="delete-row-sysUser"><i class="icon-trash"></i>批量删除 </a>
+                                                <input style="visibility:hidden" id="sysUserID"  />
+                                                <input style="visibility:hidden" id="sysUserCheckedNum" value="0" />
+                                                <span style="visibility:hidden" id="sysUserIdd"></span>
+                                            </div>
+                                            <div class="tools">
+                                                <a class="btn btn-success btn-advanced" id="A7" href="javascript:void(0)"
+                                                    data-toggle="collapse" data-target="#advanced-search"><i class="icon-filter"></i>
+                                                    高级查询 </a>
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-cog"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#">打印</a></li>
+                                                        <li><a href="#">保存至PDF</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">导出EXCEL</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                                                id="sysUserListTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <input type="checkbox" class="toggle-checkboxes" />
+                                                        </th>
+                                                        <th>
+                                                            操作
+                                                        </th>
+                                                        <th>
+                                                            登录名
+                                                        </th>
+                                                        <th>
+                                                            用户姓名
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% foreach (var item in (this.ViewData["SysUser"] as IList<Domain.UserInfo>).OrderBy(f => f.Account))
+                                                       { %>
+                                                    <tr class="gradeX">
+                                                        <td>
+                                                            <input type="checkbox" class="checkbox" value='<%= item.ID%>'/>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-success btn-mini modify" href="#" value='<%= item.ID%>'><i class="icon-edit"></i>修改 </a>
+                                                            <a class="btn btn-danger btn-mini delete" href="#" value='<%= item.ID%>'><i class="icon-delete"></i>删除 </a>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.Account%>
+                                                        </td>
+                                                        <th>
+                                                            <%= item.Name%>
+                                                        </th>
+                                                    </tr>
+                                                     <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -389,6 +673,119 @@
             <a class="btn btn-primary" id="saveCity">保存</a>
         </div>
     </aside>
+     <!-- 区域添加修改弹出框 -->
+    <aside id="addAndUpdateRegion" class="modal hide fade" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="regionAddOrUpdateTitle"><span id="Span3">添加</span></h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label">
+                    区域</label>
+                <div class="controls">
+                     <input id="regionName_edit" type="text" class="input-xlarge" placeholder="填写区域" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    所属省份</label>
+                <div class="controls">
+                    <select id="provinceAttrRegion" class="span3" >
+                        <% foreach (var item in (this.ViewData["Province"] as IList<Domain.Province>).OrderBy(f => f.ProvinceName))
+                           { %>
+                        <option class="opt_provinceAttrRegion" value="<%= item.ID %>" ><%= item.ProvinceName%></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+             <div class="control-group">
+                <label class="control-label">
+                    所属地市</label>
+                <div class="controls">
+                    <select id="cityAttrRegion" class="span3" >
+                        <% foreach (var item in (this.ViewData["City"] as IList<Domain.City>).OrderBy(f => f.CityName))
+                           { %>
+                        <option class="opt_cityAttrRegion" value="<%= item.ID %>" parentid="<%= item.Province.ID %>"><%= item.CityName%></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+            <a class="btn btn-primary" id="saveRegion">保存</a>
+        </div>
+    </aside>
+    <!-- 部门添加修改弹出框 -->
+    <aside id="addAndUpdateDepartment" class="modal hide fade" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="departmentAddOrUpdateTitle"><span id="Span4">添加</span></h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label">
+                    部门</label>
+                <div class="controls">
+                     <input id="departmentName_edit" type="text" class="input-xlarge" placeholder="填写部门" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+            <a class="btn btn-primary" id="saveDepartment">保存</a>
+        </div>
+    </aside>
+     <!-- 角色添加修改弹出框 -->
+    <aside id="addAndUpdateRole" class="modal hide fade" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="roleAddOrUpdateTitle"><span id="Span5">添加</span></h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label">
+                    角色</label>
+                <div class="controls">
+                     <input id="roleName_edit" type="text" class="input-xlarge" placeholder="填写角色" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+            <a class="btn btn-primary" id="saveRole">保存</a>
+        </div>
+    </aside>
+     <!-- 系统用户添加修改弹出框 -->
+    <aside id="addAndUpdateSysUser" class="modal hide fade" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="sysUserAddOrUpdateTitle"><span id="Span6">添加</span></h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label">
+                    系统登录用户名</label>
+                <div class="controls">
+                     <input id="sysUserName_edit" type="text" class="input-xlarge" placeholder="填写系统登录用户名" />
+                </div>
+                <label class="control-label">
+                    用户姓名</label>
+                <div class="controls">
+                     <input id="name_edit" type="text" class="input-xlarge" placeholder="填写用户姓名" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+            <a class="btn btn-primary" id="saveSysUser">保存</a>
+        </div>
+    </aside>
     <div style="visibility: hidden">
         <input data-bind="value:companyName" />
     </div>
@@ -396,5 +793,9 @@
 <script src="../../Scripts/System/Index.js"></script>
 <script src="../../Scripts/System/Province.js"></script>
 <script src="../../Scripts/System/City.js"></script>
+<script src="../../Scripts/System/Region.js"></script>
+<script src="../../Scripts/System/Department.js"></script>
+<script src="../../Scripts/System/Role.js"></script>
+<script src="../../Scripts/System/SysUser.js"></script>
 <script src="../../assets/js/bootstrap-tree.js"></script>
 </html>

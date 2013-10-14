@@ -76,5 +76,10 @@ namespace Atom.Common
             }
             return jss.Serialize(dic);
         }
+
+        public static string GenerateStringByJsonDotNet<T>(T obj)
+        {
+            return Newtonsoft.Json.JavaScriptConvert.SerializeObject(obj);
+        }
     }
 }

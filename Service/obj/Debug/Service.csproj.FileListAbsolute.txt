@@ -64,3 +64,5 @@ C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Domain.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\obj\Debug\Service.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\obj\Debug\Service.pdb
+C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Newtonsoft.Json.xml

@@ -139,9 +139,7 @@
             </div>
         </div>
     </div>
-    <div style="visibility: hidden">
-        <input data-bind="value:companyName" />
-    </div>
+    
 
 </body>
 <script src="../../Scripts/Account/Index.js"></script>

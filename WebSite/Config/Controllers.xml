@@ -19,6 +19,10 @@
 		<property name="SystemModelManager" ref="Manager.SystemModel"/>
     <property name="ProvinceManager" ref="Manager.Province"/>
     <property name="CityManager" ref="Manager.City"/>
+    <property name="RegionManager" ref="Manager.Region"/>
+    <property name="DepartmentManager" ref="Manager.Department"/>
+    <property name="RoleManager" ref="Manager.Role"/>
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
 	</object>
 
 	<object type="WebSite.Controllers.SystemModelController, WebSite" singleton="false" >
@@ -52,6 +56,20 @@
   <object type="WebSite.Controllers.CityController, WebSite" singleton="false" >
     <property name="CityManager" ref="Manager.City"/>
     <property name="ProvinceManager" ref="Manager.Province"/>
+  </object>
+
+  <object type="WebSite.Controllers.RegionController, WebSite" singleton="false" >
+    <property name="RegionManager" ref="Manager.Region"/>
+    <property name="CityManager" ref="Manager.City"/>
+    <property name="ProvinceManager" ref="Manager.Province"/>
+  </object>
+
+  <object type="WebSite.Controllers.DepartmentController, WebSite" singleton="false" >
+    <property name="DepartmentManager" ref="Manager.Department"/>
+  </object>
+
+  <object type="WebSite.Controllers.RoleController, WebSite" singleton="false" >
+    <property name="RoleManager" ref="Manager.Role"/>
   </object>
 
 	<object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />

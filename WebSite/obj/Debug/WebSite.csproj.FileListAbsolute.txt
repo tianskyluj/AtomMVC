@@ -118,3 +118,5 @@ C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\GenerateResour
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.pdb
+C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\Newtonsoft.Json.xml
