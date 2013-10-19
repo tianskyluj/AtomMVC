@@ -16,6 +16,29 @@ function getMultiSelectValue (obj){
     return value;
 }
 
+// 返回多选下拉列表的value字符串
+function getMulitiSelectValue(obj) {
+    var selectValues = '';
+    var lis = obj.siblings().find('.active');
+    lis.each(function () {
+        if ($(this).children().attr('class') != 'multiselect-all') {
+            selectValues = selectValues + $(this).find('input').val() + ',';
+        }
+    });
+    return selectValues;
+}
+
+// 初始化多选下拉列表
+function initMulitiSelect(obj) {
+    var lis = obj.siblings().find('.active');
+    obj.siblings().find('button').html('请选择<b class="caret"></b>');
+    obj.children('option').removeAttr('selected');
+    lis.each(function () {
+        $(this).removeAttr("class");
+        $(this).find('input').prop('checked', false);
+    });
+}
+
 // 初始化 多选下拉列表 所选都置空
 function initMultiSelect(obj) {
     var select = $(obj); 
@@ -24,6 +47,34 @@ function initMultiSelect(obj) {
     inputs.eq(0).click();
     inputs.eq(0).click();
     return value;
+}
+
+// 根据arr数组设置多选下拉列表控件的值
+function setMulitiSelectValue(control, arr) {
+    initMulitiSelect(control);
+    for (x in arr) {
+        control.find('option[value="' + arr[x] + '"]').attr('selected', 'selected');
+        control.siblings().find('input[value="' + arr[x] + '"]').prop('checked', true);
+        control.siblings().find('input[value="' + arr[x] + '"]').parent().parent().parent('li').addClass('active');
+    }
+    var options = control.find('option[selected="selected"]')
+    if (options.length == 0) {
+        control.siblings().find('button').html('请选择<b class="caret"></b>');
+    }
+    else if (options.length > 3) {
+        control.siblings().find('button').html(options.length + '  项被选中 <b class="caret"></b>');
+    }
+    else {
+        var selected = '';
+        options.each(function () {
+            var label = ($(this).attr('label') !== undefined) ? $(this).attr('label') : $(this).text();
+
+            selected += label + ', ';
+        });
+        control.siblings().find('button').html(selected);
+    }
+        
+
 }
 
 $(document).ready(function () {

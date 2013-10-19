@@ -780,6 +780,21 @@
                      <input id="name_edit" type="text" class="input-xlarge" placeholder="填写用户姓名" />
                 </div>
             </div>
+             <div class="control-group">
+                <label class="control-label">
+                    所属角色</label>
+                <div class="controls">
+                    <select id="roleAttrUser"  multiple="multiple" class="span3" >
+                        <% foreach (var item in (this.ViewData["Role"] as IList<Domain.Role>).OrderBy(f => f.RoleName))
+                           { %>
+                        <option class="opt_roleAttrUser" value="<%= item.ID %>"><%= item.RoleName%></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+            <div style="height:100px;">
+                
+            </div>
         </div>
         <div class="modal-footer">
             <button class="btn btn-danger" data-dismiss="modal">关闭</button>

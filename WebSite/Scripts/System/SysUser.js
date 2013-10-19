@@ -152,6 +152,10 @@ function fnGetSelected(oTableLocal) {
 }
 
 $(function () {
+    $('#roleAttrUser').multiselect({
+        includeSelectAllOption: true
+    });
+
     var oTable;
 
     /* Add a click handler to the rows - this could be used as a callback */
@@ -229,15 +233,17 @@ $(function () {
     });
 
     $('#add-row-sysUser').click(function () {                                   // 修改表格名称
-        $('#sysUserName_edit').val('');                                          // 修改表格名称   
+        $('#sysUserName_edit').val('');
+        $('#name_edit').val('');                                   // 修改表格名称   
+        initMulitiSelect($('#roleAttrUser'));
         $('#sysUserID').val('0');
         $('#sysUserIdd').html('0');
-        $("#sysUserAddOrUpdateTitle").html("添加省份");                             // 修改表格名称
+        $("#sysUserAddOrUpdateTitle").html("添加用户");                             // 修改表格名称
         $("#addAndUpdateSysUser").modal("show");                                // 修改表格名称
     });
 
     $('#sysUserListTable .modify').click(function () {                          // 修改表格名称
-        $("#sysUserAddOrUpdateTitle").html("修改省份");                           // 修改表格名称
+        $("#sysUserAddOrUpdateTitle").html("修改用户");                           // 修改表格名称
         $('#sysUserID').val($(this).attr('value'));
         $('#sysUserIdd').html($(this).attr('value'));
         $.post(
@@ -248,6 +254,18 @@ $(function () {
                 function (result) {
                     var entity = eval("(" + result + ")");
                     $('#sysUserName_edit').val(entity.Account);
+                    $('#name_edit').val(entity.Name);
+                }
+            );
+        // 设置多选下拉列表
+        $.post(
+                '/Account/GetRoleUser',
+                {
+                    "id": $(this).attr('value')
+                },
+                function (result) {
+                    var entity = eval("(" + result + ")");
+                    setMulitiSelectValue($('#roleAttrUser'), entity);
                 }
             );
         $("#addAndUpdateSysUser").modal("show");
@@ -287,10 +305,14 @@ $(function () {
         return ifSelected;
     });
 
-    // 保存省份信息
+    // 保存用户信息
     $('#saveSysUser').click(function () {                                            // 修改表格名称
         if ($('#sysUserName_edit').val().trim() == '') {
             showError('登录用户名不能为空');
+            return false;
+        }
+        if ($('#name_edit').val().trim() == '') {
+            showError('用户姓名不能为空');
             return false;
         }
         $.post(
@@ -299,7 +321,8 @@ $(function () {
                 "id": $('#sysUserIdd').html(),
                 "isEnabled": true,
                 "account": $('#sysUserName_edit').val().trim(),                // 修改表格名称
-                "name": $('#name_edit').val().trim()
+                "name": $('#name_edit').val().trim(),
+                "roleIDs": getMulitiSelectValue($('#roleAttrUser'))
             },
                 function (result) { if (result == "1") { $("#addAndUpdateSysUser").modal("hide"); redirect('/System/Index'); alert("操作成功"); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
         );

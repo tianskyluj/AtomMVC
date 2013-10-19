@@ -13,6 +13,8 @@ namespace WebSite.Controllers
         //
         // GET: /Account/
         public IUserInfoManager UserInfoManager { get; set; }
+        public IRoleManager RoleManager { get; set; }
+        public IRoleUserManager RoleUserManager { get; set; }
        
         public ActionResult Index()
         {
@@ -82,14 +84,32 @@ namespace WebSite.Controllers
         /// <param name="globalModel"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult SaveSysUser(UserInfo userInfo)
+        public ActionResult SaveSysUser(UserInfo userInfo,string roleIDs)
         {
+            // 添加系统用户
             if (userInfo.ID == new Guid())
                 userInfo.ID = Guid.NewGuid();
+            if (UserInfoManager.GetUserSession().IsAdmin)
+                userInfo.IsAdmin = true;
             userInfo.CreateTime = DateTime.Now;
             userInfo.UpdateTime = DateTime.Now;
             userInfo.Password = Atom.Common.DEncrypt.HashEncode.HashCode(userInfo.Account.ToUpper() + "123456" + userInfo.CreateTime.ToLongDateString());
             UserInfoManager.SaveOrUpdate(userInfo);
+
+            // 初始化用户和角色关系
+            RoleUserManager.InitRoleUserRelateion(userInfo);
+            // 添加用户角色关联关系
+
+            string[] roleStrs = roleIDs.Trim(',').Split(',');
+            for (int i = 0; i < roleStrs.Length; i++)
+            {
+                Guid roleID = new Guid(roleStrs[i].ToString());
+                RoleUser entity = new RoleUser();
+                entity.ID = Guid.NewGuid();
+                entity.Role = RoleManager.Get(roleID);
+                entity.User = userInfo;
+                RoleUserManager.Save(entity);
+            }
 
             return Content("1");
         }
@@ -116,6 +136,15 @@ namespace WebSite.Controllers
         public ActionResult UpdateSysUser(UserInfo userInfo)
         {
             return Content(Atom.Common.JsonHelper.GetJson<UserInfo>(UserInfoManager.LoadAll().FirstOrDefault(f => f.ID == userInfo.ID)));
+        }
+
+        /// <summary>
+        /// 根据用户ID返回相关角色
+        /// </summary>
+        [HttpPost]
+        public ActionResult GetRoleUser(UserInfo userInfo)
+        {
+            return Content(Atom.Common.JsonHelper.GetJson<List<Guid>>(RoleUserManager.GetRolesWithUserID(userInfo)));
         }
     }
 }
