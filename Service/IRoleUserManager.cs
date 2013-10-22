@@ -18,5 +18,11 @@ namespace Service
         /// </summary>
         /// <param name="userID"></param>
         List<Guid> GetRolesWithUserID(UserInfo userEntity);
+
+        /// <summary>
+        /// 根据用户删除该用户的所有角色关联关系
+        /// </summary>
+        /// <param name="userEntity"></param>
+        void DeleteWithUserInfo(UserInfo userEntity);
     }
 }

@@ -23,6 +23,7 @@
                         <li class=""><a href="#department" data-toggle="tab"><i class="icon-sitemap"></i>部门</a></li>
                         <li class=""><a href="#role" data-toggle="tab"><i class="icon-group"></i>角色</a></li>
                         <li class=""><a href="#user" data-toggle="tab"><i class="icon-user"></i>用户</a></li>
+                        <li class=""><a href="#rights" data-toggle="tab"><i class="icon-lock"></i>权限</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade active in" id="home">
@@ -452,6 +453,9 @@
                                                         <th>
                                                             角色
                                                         </th>
+                                                        <th>
+                                                            所属部门
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -467,7 +471,9 @@
                                                         </td>
                                                         <td>
                                                             <%= item.RoleName%>
-                                                            
+                                                        </td>
+                                                        <td>
+                                                            <%= item.Department.DepartmentName%>
                                                         </td>
                                                     </tr>
                                                      <% } %>
@@ -551,6 +557,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="tab-pane fade " id="rights">
                         </div>
                     </div>
                 </div>
@@ -752,6 +760,16 @@
                     角色</label>
                 <div class="controls">
                      <input id="roleName_edit" type="text" class="input-xlarge" placeholder="填写角色" />
+                </div>
+                <label class="control-label">
+                    所属角色</label>
+                <div class="controls">
+                    <select id="departmentAttrRole"  class="span3" >
+                        <% foreach (var item in (this.ViewData["Department"] as IList<Domain.Department>).OrderBy(f => f.DepartmentName))
+                           { %>
+                        <option class="opt_departmentAttrRole" value="<%= item.ID %>"><%= item.DepartmentName%></option>
+                        <% } %>
+                    </select>
                 </div>
             </div>
         </div>

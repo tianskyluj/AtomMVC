@@ -11,6 +11,7 @@ namespace WebSite.Controllers
     public class RoleController : Controller
     {
         public IRoleManager RoleManager { get; set; }
+        public IDepartmentManager DepartmentManager { get; set; }
 
         //
         // GET: /SystemModel/
@@ -26,10 +27,11 @@ namespace WebSite.Controllers
         /// <param name="globalModel"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult SaveRole(Role role)
+        public ActionResult SaveRole(Role role, Guid departmentId)
         {
             if (role.ID == new Guid())
                 role.ID = Guid.NewGuid();
+            role.Department = DepartmentManager.Get(departmentId);
             RoleManager.SaveOrUpdate(role);
 
             return Content("1");
@@ -56,7 +58,7 @@ namespace WebSite.Controllers
         [HttpPost]
         public ActionResult UpdateRole(Role role)
         {
-            return Content(Atom.Common.JsonHelper.GetJson<Role>(RoleManager.LoadAll().FirstOrDefault(f => f.ID == role.ID)));
+            return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet<Role>(RoleManager.LoadAll().FirstOrDefault(f => f.ID == role.ID)));
         }
     }
 }

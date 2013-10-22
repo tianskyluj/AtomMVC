@@ -19,6 +19,11 @@ namespace Domain
         public virtual string RoleName { get; set; }
 
         /// <summary>
+        /// 角色名称
+        /// </summary>
+        public virtual Department Department { get; set; }
+
+        /// <summary>
         /// 是否启用
         /// </summary>
         public virtual bool IsEnabled { get; set; }

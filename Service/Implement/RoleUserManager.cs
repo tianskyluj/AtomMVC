@@ -37,5 +37,18 @@ namespace Service.Implement
             }
             return roleList;
         }
+
+        /// <summary>
+        /// 根据用户删除该用户的所有角色关联关系
+        /// </summary>
+        /// <param name="userEntity"></param>
+        public void DeleteWithUserInfo(UserInfo userEntity)
+        {
+            List<RoleUser> roleUserList = base.LoadAll().Where(f => f.User.ID == userEntity.ID).ToList();
+            for (int i = 0; i < roleUserList.Count; i++)
+            {
+                base.Delete(roleUserList[i].ID);
+            }
+        }
     }
 }

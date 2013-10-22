@@ -122,8 +122,8 @@ namespace WebSite.Controllers
         [HttpPost]
         public ActionResult DeleteSysUser(UserInfo userInfo)
         {
+            RoleUserManager.DeleteWithUserInfo(userInfo);
             UserInfoManager.Delete(userInfo.ID);
-
             return Content("1");
         }
 

@@ -72,6 +72,7 @@
 
   <object type="WebSite.Controllers.RoleController, WebSite" singleton="false" >
     <property name="RoleManager" ref="Manager.Role"/>
+    <property name="DepartmentManager" ref="Manager.Department"/>
   </object>
 
 	<object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />

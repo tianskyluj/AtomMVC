@@ -247,6 +247,7 @@ $(function () {
                 function (result) {
                     var entity = eval("(" + result + ")");
                     $('#roleName_edit').val(entity.RoleName);
+                    $('#departmentAttrRole').val(entity.Department.ID);
                 }
             );
         $("#addAndUpdateRole").modal("show");
@@ -297,7 +298,8 @@ $(function () {
                 {
                 "id": $('#roleIdd').html(),
                 "isEnabled": true,
-                "roleName": $('#roleName_edit').val().trim()                // 修改表格名称
+                "roleName": $('#roleName_edit').val().trim(),                // 修改表格名称
+                "departmentID": $('#departmentAttrRole').val()
             },
                 function (result) { if (result == "1") { $("#addAndUpdateRole").modal("hide"); redirect('/System/Index'); alert("操作成功"); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
         );
