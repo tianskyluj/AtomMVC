@@ -75,6 +75,29 @@
     <property name="DepartmentManager" ref="Manager.Department"/>
   </object>
 
+  <object type="WebSite.Controllers.EmailController, WebSite" singleton="false" >
+    <property name="EmailManager" ref="Manager.Email"/>
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
+    <property name="EmailReceiveUserRelationManager" ref="Manager.EmailReceiveUserRelation"/>
+  </object>
+
+  <object type="WebSite.Controllers.TaskController, WebSite" singleton="false" >
+    <property name="TaskManager" ref="Manager.Task"/>
+    <property name="TaskStateManager" ref="Manager.TaskState"/>
+    <property name="TaskLevelManager" ref="Manager.TaskLevel"/>
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
+    <property name="TaskReceiveUserRelationManager" ref="Manager.TaskReceiveUserRelation"/>
+  </object>
+
+  <object type="WebSite.Controllers.ApplyController, WebSite" singleton="false" >
+    <property name="ApplyManager" ref="Manager.Apply"/>
+    <property name="ApplyTypeManager" ref="Manager.ApplyType"/>
+    <property name="RoleManager" ref="Manager.Role"/>
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
+    <property name="CheckLogManager" ref="Manager.CheckLog"/>
+    <property name="RoleUserManager" ref="Manager.RoleUser"/>
+  </object>
+
 	<object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />
 
 </objects>

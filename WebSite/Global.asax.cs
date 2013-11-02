@@ -33,6 +33,10 @@ namespace WebSite
             this.SetGlobalSetting();
 
             this.LoadSystemModel();
+
+            this.LoadTaskLevel();
+            this.LoadTaskState();
+            this.LoadApplyType();
         }
 
         /// <summary>
@@ -108,6 +112,88 @@ namespace WebSite
                     {
                         manger.FastAddSystemModel(guid, drs[j]["value"].ToString(), drs[j]["Name"].ToString(), j);
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 按config文件夹中的TaskLevel.xml配置文件加任务等级
+        /// </summary>
+        private void LoadTaskLevel()
+        {
+            string xmlPath = "~/Config/TaskLevel.xml";
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            ITaskLevelManager manger = (ITaskLevelManager)cxt.GetObject("Manager.TaskLevel");
+            IList<Domain.TaskLevel> taskLevelList = manger.LoadAll();
+            if (taskLevelList.Count == 0)
+            {
+                //manger.LoadSystemModelWithXML();
+                // 把xml文件转换成dataSet
+                Atom.Common.XML.XMLProcess xmlProcess = new Atom.Common.XML.XMLProcess();
+                DataSet xmlDS = xmlProcess.GetDataSetByXml(xmlPath);
+                // 生成目录
+                for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
+                {
+                    Domain.TaskLevel entity = new Domain.TaskLevel();
+                    entity.ID = Guid.NewGuid();
+                    entity.LevelName = xmlDS.Tables[0].Rows[i]["name"].ToStr();
+                    entity.OrderIndex = xmlDS.Tables[0].Rows[i]["orderIndex"].ToInt();
+                    manger.Save(entity);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 按config文件夹中的TaskState.xml配置文件加任务等级
+        /// </summary>
+        private void LoadTaskState()
+        {
+            string xmlPath = "~/Config/TaskState.xml";
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            ITaskStateManager manger = (ITaskStateManager)cxt.GetObject("Manager.TaskState");
+            IList<Domain.TaskState> taskStateList = manger.LoadAll();
+            if (taskStateList.Count == 0)
+            {
+                //manger.LoadSystemModelWithXML();
+                // 把xml文件转换成dataSet
+                Atom.Common.XML.XMLProcess xmlProcess = new Atom.Common.XML.XMLProcess();
+                DataSet xmlDS = xmlProcess.GetDataSetByXml(xmlPath);
+                // 生成目录
+                for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
+                {
+                    Domain.TaskState entity = new Domain.TaskState();
+                    entity.ID = Guid.NewGuid();
+                    entity.StateName = xmlDS.Tables[0].Rows[i]["name"].ToStr();
+                    entity.OrderIndex = xmlDS.Tables[0].Rows[i]["orderIndex"].ToInt();
+                    manger.Save(entity);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 按config文件夹中的ApplyType.xml配置文件加任务等级
+        /// </summary>
+        private void LoadApplyType()
+        {
+            string xmlPath = "~/Config/ApplyType.xml";
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            IApplyTypeManager manger = (IApplyTypeManager)cxt.GetObject("Manager.ApplyType");
+            IList<Domain.ApplyType> applyTypeList = manger.LoadAll();
+            if (applyTypeList.Count == 0)
+            {
+                //manger.LoadSystemModelWithXML();
+                // 把xml文件转换成dataSet
+                Atom.Common.XML.XMLProcess xmlProcess = new Atom.Common.XML.XMLProcess();
+                DataSet xmlDS = xmlProcess.GetDataSetByXml(xmlPath);
+                // 生成目录
+                for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
+                {
+                    Domain.ApplyType entity = new Domain.ApplyType();
+                    entity.ID = Guid.NewGuid();
+                    entity.ApplyTypeName = xmlDS.Tables[0].Rows[i]["name"].ToStr();
+                    entity.Flow = new Domain.Flow();
+                    entity.OrderIndex = xmlDS.Tables[0].Rows[i]["orderIndex"].ToInt();
+                    manger.Save(entity);
                 }
             }
         }

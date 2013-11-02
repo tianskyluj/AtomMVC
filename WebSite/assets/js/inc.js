@@ -73,8 +73,11 @@ function setMulitiSelectValue(control, arr) {
         });
         control.siblings().find('button').html(selected);
     }
-        
+}
 
+// 设置多选下来列表标题
+function setMulitiSelectTitle(obj, title) {
+    obj.siblings().find('button').html(title + '<b class="caret"></b>');
 }
 
 $(document).ready(function () {

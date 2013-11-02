@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFlowRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implement\FlowRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Implement\UserInfoRepository.cs" />
     <Compile Include="Implement\ForumRepository.cs" />
     <Compile Include="Implement\ArticleRepository.cs" />
@@ -84,6 +90,15 @@
     <Compile Include="Implement\RoleRegionRepository.cs" />
     <Compile Include="Implement\RoleDepartmentRepository.cs" />
     <Compile Include="Implement\RoleUserRepository.cs" />
+    <Compile Include="Implement\EmailRepository.cs" />
+    <Compile Include="Implement\EmailReceiveUserRelationRepository.cs" />
+    <Compile Include="Implement\TaskRepository.cs" />
+    <Compile Include="Implement\TaskStateRepository.cs" />
+    <Compile Include="Implement\TaskReceiveUserRelationRepository.cs" />
+    <Compile Include="Implement\TaskLevelRepository.cs" />
+    <Compile Include="Implement\ApplyTypeRepository.cs" />
+    <Compile Include="Implement\ApplyRepository.cs" />
+    <Compile Include="Implement\CheckLogRepository.cs" />
     <Compile Include="IRepository`1.cs" />
     <Compile Include="IUserInfoRepository.cs" />
     <Compile Include="RepositoryBase`1.cs" />
@@ -104,6 +119,15 @@
     <Compile Include="IRoleRegionRepository.cs" />
     <Compile Include="IRoleDepartmentRepository.cs" />
     <Compile Include="IRoleUserRepository.cs" />
+    <Compile Include="IEmailRepository.cs" />
+    <Compile Include="IEmailReceiveUserRelationRepository.cs" />
+    <Compile Include="ITaskRepository.cs" />
+    <Compile Include="ITaskStateRepository.cs" />
+    <Compile Include="ITaskReceiveUserRelationRepository.cs" />
+    <Compile Include="ITaskLevelRepository.cs" />
+    <Compile Include="IApplyTypeRepository.cs" />
+    <Compile Include="IApplyRepository.cs" />
+    <Compile Include="ICheckLogRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

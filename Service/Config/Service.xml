@@ -137,5 +137,85 @@
     </property>
   </object>
 
+  <object id="Manager.Email" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.EmailManager, Service">
+        <property name="CurrentRepository" ref="Repository.Email"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.EmailReceiveUserRelation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.EmailReceiveUserRelationManager, Service">
+        <property name="CurrentRepository" ref="Repository.EmailReceiveUserRelation"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.Task" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.TaskManager, Service">
+        <property name="CurrentRepository" ref="Repository.Task"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.TaskState" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.TaskStateManager, Service">
+        <property name="CurrentRepository" ref="Repository.TaskState"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.TaskLevel" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.TaskLevelManager, Service">
+        <property name="CurrentRepository" ref="Repository.TaskLevel"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.TaskReceiveUserRelation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.TaskReceiveUserRelationManager, Service">
+        <property name="CurrentRepository" ref="Repository.TaskReceiveUserRelation"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.ApplyType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.ApplyTypeManager, Service">
+        <property name="CurrentRepository" ref="Repository.ApplyType"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.Flow" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.FlowManager, Service">
+        <property name="CurrentRepository" ref="Repository.Flow"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.Apply" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.ApplyManager, Service">
+        <property name="CurrentRepository" ref="Repository.Apply"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.CheckLog" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.CheckLogManager, Service">
+        <property name="CurrentRepository" ref="Repository.CheckLog"/>
+      </object>
+    </property>
+  </object>
+
 </objects>
 

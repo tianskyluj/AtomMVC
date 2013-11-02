@@ -69,5 +69,43 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
+  <object id="Repository.Email" type="Dao.Implement.EmailRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.EmailReceiveUserRelation" type="Dao.Implement.EmailReceiveUserRelationRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.Task" type="Dao.Implement.TaskRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="Repository.TaskState" type="Dao.Implement.TaskStateRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="Repository.TaskLevel" type="Dao.Implement.TaskLevelRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.TaskReceiveUserRelation" type="Dao.Implement.TaskReceiveUserRelationRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.ApplyType" type="Dao.Implement.ApplyTypeRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.Flow" type="Dao.Implement.FlowRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.Apply" type="Dao.Implement.ApplyRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.CheckLog" type="Dao.Implement.CheckLogRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
 </objects>
 
