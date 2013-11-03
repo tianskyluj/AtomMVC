@@ -61,8 +61,8 @@ C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Remotion.Data.
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Common.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Dao.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Domain.pdb
-C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\obj\Debug\Service.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\obj\Debug\Service.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\GitHub\AtomMVC\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache

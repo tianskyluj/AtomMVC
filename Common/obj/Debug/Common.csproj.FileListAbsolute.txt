@@ -16,8 +16,8 @@ C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\bin\Debug\Common.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\bin\Debug\COM.Excel.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\bin\Debug\Excel.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\bin\Debug\OpenSmtp.dll
-C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\obj\Debug\Common.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\obj\Debug\Common.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\GitHub\AtomMVC\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

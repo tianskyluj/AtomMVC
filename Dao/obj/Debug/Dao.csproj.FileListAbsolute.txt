@@ -61,8 +61,8 @@ C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Common.Logging.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Spring.Aop.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Common.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Domain.pdb
-C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\obj\Debug\Dao.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\obj\Debug\Dao.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\GitHub\AtomMVC\Dao\obj\Debug\Dao.csprojResolveAssemblyReference.cache

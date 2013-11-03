@@ -111,12 +111,11 @@ C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\Service.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\System.Web.Mvc.xml
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\Dao.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\zh-Hans\System.Web.Mvc.resources.dll
-C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.Resource.en-US.resources
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.Resource.zh-CN.resources
-C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\GenerateResource.read.1.tlog
-C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.pdb
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\Newtonsoft.Json.dll
 C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\bin\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\AtomMVC\WebSite\obj\Debug\WebSite.csproj.GenerateResource.Cache

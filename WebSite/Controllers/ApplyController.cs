@@ -28,7 +28,7 @@ namespace WebSite.Controllers
 
         public ActionResult MyApply()
         {
-            ViewData["Checked"] = ApplyManager.LoadAll().Where(f => f.SendUser.ID == UserInfoManager.GetUserSession().ID && f.CheckState == 1);
+            ViewData["Checked"] = ApplyManager.LoadAll().Where(f => f.SendUser.ID == UserInfoManager.GetUserSession().ID );
             ViewData["CheckLog"] = CheckLogManager.LoadAll().Where(f => f.Apply.SendUser.ID == UserInfoManager.GetUserSession().ID);
             return View("MyApply");
         }

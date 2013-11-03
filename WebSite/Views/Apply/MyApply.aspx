@@ -64,7 +64,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% foreach (var item in (this.ViewData["ToBeChecked"] as IEnumerable<Domain.Apply>).OrderBy(f => f.CreateTime))
+                            <% foreach (var item in (this.ViewData["Checked"] as IEnumerable<Domain.Apply>).OrderBy(f => f.CreateTime))
                                { %>
                             <tr class="gradeX">
                                 <td>

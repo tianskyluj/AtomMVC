@@ -6,7 +6,7 @@
     <div class="row-fluid">
         <div class="span12">
             <h3 class="page-title">
-                我分配的任务
+                我的审核
             </h3>
         </div>
     </div>
