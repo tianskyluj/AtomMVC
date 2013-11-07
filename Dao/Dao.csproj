@@ -99,6 +99,13 @@
     <Compile Include="Implement\ApplyTypeRepository.cs" />
     <Compile Include="Implement\ApplyRepository.cs" />
     <Compile Include="Implement\CheckLogRepository.cs" />
+    <Compile Include="Implement\DocPassRepository.cs" />
+    <Compile Include="Implement\DocReceiveUserRelationRepository.cs" />
+    <Compile Include="Implement\CustomRepository.cs" />
+    <Compile Include="Implement\CustomTypeRepository.cs" />
+    <Compile Include="Implement\CustomMaintainRepository.cs" />
+    <Compile Include="Implement\MaintainTypeRepository.cs" />
+    <Compile Include="Implement\MaintainMethodRepository.cs" />
     <Compile Include="IRepository`1.cs" />
     <Compile Include="IUserInfoRepository.cs" />
     <Compile Include="RepositoryBase`1.cs" />
@@ -128,6 +135,13 @@
     <Compile Include="IApplyTypeRepository.cs" />
     <Compile Include="IApplyRepository.cs" />
     <Compile Include="ICheckLogRepository.cs" />
+    <Compile Include="IDocPassRepository.cs" />
+    <Compile Include="IDocReceiveUserRelationRepository.cs" />
+    <Compile Include="ICustomRepository.cs" />
+    <Compile Include="ICustomTypeRepository.cs" />
+    <Compile Include="ICustomMaintainRepository.cs" />
+    <Compile Include="IMaintainTypeRepository.cs" />
+    <Compile Include="IMaintainMethodRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

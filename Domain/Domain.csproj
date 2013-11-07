@@ -70,6 +70,13 @@
     <Compile Include="ApplyType.cs" />
     <Compile Include="Apply.cs" />
     <Compile Include="CheckLog.cs" />
+    <Compile Include="DocPass.cs" />
+    <Compile Include="DocReceiveUserRelation.cs" />
+    <Compile Include="Custom.cs" />
+    <Compile Include="CustomType.cs" />
+    <Compile Include="CustomMaintain.cs" />
+    <Compile Include="MaintainType.cs" />
+    <Compile Include="MaintainMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Flow.hbm.xml">
@@ -171,6 +178,41 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CheckLog.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DocPass.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DocReceiveUserRelation.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomType.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Custom.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MaintainType.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MaintainMethod.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomMaintain.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

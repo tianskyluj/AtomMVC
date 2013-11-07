@@ -77,6 +77,13 @@
     <Compile Include="Implement\ApplyTypeManager.cs" />
     <Compile Include="Implement\ApplyManager.cs" />
     <Compile Include="Implement\CheckLogManager.cs" />
+    <Compile Include="Implement\DocPassManager.cs" />
+    <Compile Include="Implement\DocReceiveUserRelationManager.cs" />
+    <Compile Include="Implement\CumtomManager.cs" />
+    <Compile Include="Implement\CumtomTypeManager.cs" />
+    <Compile Include="Implement\CumtomMaintainManager.cs" />
+    <Compile Include="Implement\MaintainTypeManager.cs" />
+    <Compile Include="Implement\MaintainMethodManager.cs" />
     <Compile Include="IRegistrationManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,6 +113,13 @@
     <Compile Include="IApplyTypeManager.cs" />
     <Compile Include="IApplyManager.cs" />
     <Compile Include="ICheckLogManager.cs" />
+    <Compile Include="IDocPassManager.cs" />
+    <Compile Include="IDocReceiveUserRelationManager.cs" />
+    <Compile Include="ICustomManager.cs" />
+    <Compile Include="ICustomTypeManager.cs" />
+    <Compile Include="ICustomMaintainManager.cs" />
+    <Compile Include="IMaintainTypeManager.cs" />
+    <Compile Include="IMaintainMethodManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

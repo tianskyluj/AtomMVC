@@ -217,5 +217,61 @@
     </property>
   </object>
 
+  <object id="Manager.DocPass" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.DocPassManager, Service">
+        <property name="CurrentRepository" ref="Repository.DocPass"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.DocReceiveUserRelation" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.DocReceiveUserRelationManager, Service">
+        <property name="CurrentRepository" ref="Repository.DocReceiveUserRelation"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.Custom" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.CustomManager, Service">
+        <property name="CurrentRepository" ref="Repository.Custom"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.CustomType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.CustomTypeManager, Service">
+        <property name="CurrentRepository" ref="Repository.CustomType"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.CustomMaintain" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.CustomMaintainManager, Service">
+        <property name="CurrentRepository" ref="Repository.CustomMaintain"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.MaintainType" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.MaintainTypeManager, Service">
+        <property name="CurrentRepository" ref="Repository.MaintainType"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.MaintainMethod" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.MaintainMethodManager, Service">
+        <property name="CurrentRepository" ref="Repository.MaintainMethod"/>
+      </object>
+    </property>
+  </object>
+
 </objects>
 

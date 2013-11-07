@@ -120,6 +120,7 @@
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\ApplyController.cs" />
+    <Compile Include="Controllers\DocPassController.cs" />
     <Compile Include="Core\LocalizationHelpers.cs" />
     <Compile Include="Core\UserPathFckProvider.cs" />
     <Compile Include="Global.asax.cs">
@@ -868,6 +869,9 @@
     <Content Include="Scripts\Apply\MyCheck.js" />
     <Content Include="Scripts\Apply\MyApply.js" />
     <Content Include="Scripts\Apply\NewApply.js" />
+    <Content Include="Scripts\DocPass\MyDoc.js" />
+    <Content Include="Scripts\DocPass\MyPass.js" />
+    <Content Include="Scripts\DocPass\NewDocPass.js" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Article\Admin.aspx" />
     <Content Include="Views\Article\Get.aspx" />
@@ -901,6 +905,9 @@
     <Content Include="Views\Apply\MyCheck.aspx" />
     <Content Include="Views\Apply\MyApply.aspx" />
     <Content Include="Views\Apply\NewApply.aspx" />
+    <Content Include="Views\DocPass\MyDoc.aspx" />
+    <Content Include="Views\DocPass\MyPass.aspx" />
+    <Content Include="Views\DocPass\NewPass.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

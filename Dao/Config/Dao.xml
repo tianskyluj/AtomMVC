@@ -107,5 +107,33 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
+  <object id="Repository.DocPass" type="Dao.Implement.DocPassRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+  <object id="Repository.DocReceiveUserRelation" type="Dao.Implement.DocReceiveUserRelationRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.Custom" type="Dao.Implement.CustomRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.CustomType" type="Dao.Implement.CustomTypeRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.CustomMaintain" type="Dao.Implement.CustomMaintainRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.MaintainType" type="Dao.Implement.MaintainTypeRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.MaintainMethod" type="Dao.Implement.MaintainMethodRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
 </objects>
 

@@ -15,21 +15,28 @@
     <URL value="/Apply/MyApply" name="我的申请"/>
     <URL value="/Apply/MyCheck" name="我的审批"/>
   </Direct>
-  <Direct value="Diagnose" name="公文传阅" >
-    <URL value="/Diagnose/Index" name="公文传阅"/>
+  <Direct value="DocPass" name="公文传阅" >
+    <URL value="/DocPass/NewPass" name="添加公文传阅"/>
+    <URL value="/DocPass/MyDoc" name="我发起的传阅"/>
+    <URL value="/DocPass/MyPass" name="我的传阅"/>
   </Direct>
-  <Direct value="Diagnose" name="客户关系管理" >
-    <URL value="/Diagnose/Index" name="财务状况"/>
+  <Direct value="Custom" name="客户关系管理" >
+    <URL value="/Custom/NewCustom" name="添加客户"/>
+    <URL value="/Custom/Custom" name="客户列表"/>
+    <URL value="/Custom/CustomBirthday" name="生日提醒"/>
+    <URL value="/Custom/NewActive" name="添加客户维护业务"/>
+    <URL value="/Custom/ActiveSummary" name="客户维护业务统计"/>
+    <URL value="/Custom/ActiveWarnning" name="客户维护预警"/>
   </Direct>
-  <Direct value="Diagnose" name="采购管理" >
+  <!--<Direct value="Diagnose" name="采购管理" >
     <URL value="/Diagnose/Index" name="发布采购"/>
-  </Direct>
-  <Direct value="Diagnose" name="库存管理" >
+  </Direct>-->
+  <!--<Direct value="Diagnose" name="库存管理" >
     <URL value="/Diagnose/Index" name="财务状况"/>
-  </Direct>
-  <Direct value="Diagnose" name="销售管理" >
+  </Direct>-->
+  <!--<Direct value="Diagnose" name="销售管理" >
     <URL value="/Diagnose/Index" name="发布销售"/>
-  </Direct>
+  </Direct>-->
 	<!--<Direct value="Diagnose" name="企业诊断" >
 		<URL value="/Diagnose/Index" name="财务状况"/>
 		<URL value="/Diagnose/Index" name="员工状况"/>

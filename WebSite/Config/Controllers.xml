@@ -98,6 +98,12 @@
     <property name="RoleUserManager" ref="Manager.RoleUser"/>
   </object>
 
+  <object type="WebSite.Controllers.DocPassController, WebSite" singleton="false" >
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
+    <property name="DocPassManager" ref="Manager.DocPass"/>
+    <property name="DocReceiveUserRelationManager" ref="Manager.DocReceiveUserRelation"/>
+  </object>
+
 	<object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />
 
 </objects>
