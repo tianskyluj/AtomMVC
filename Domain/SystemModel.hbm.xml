@@ -16,6 +16,11 @@
 			<column name="Name" length="50" not-null="true"/>
 		</property>
 
+    <!--图标路径-->
+    <property name="Icon" type="string">
+      <column name="Icon" length="100" not-null="false"/>
+    </property>
+
 		<!--路径-->
 		<property name="Url" type="string">
 			<column name="Url" length="50" not-null="false"/>

@@ -17,7 +17,7 @@ namespace Service.Implement
         /// <param name="url">访问路径</param>
         /// <param name="name">名称</param>
         /// <param name="orderIndex">排序码</param>
-        public Guid FastAddSystemModel(Guid parentId, string url, string name, int orderIndex)
+        public Guid FastAddSystemModel(Guid parentId, string url, string name, int orderIndex,string icon)
         {
             SystemModel entity = new SystemModel();
             entity.ID = Guid.NewGuid();
@@ -26,6 +26,7 @@ namespace Service.Implement
             entity.Name = name;
             entity.IsEnabled = true;
             entity.OrderIndex = orderIndex;
+            entity.Icon = icon;
             base.Save(entity);
             return entity.ID;
         }

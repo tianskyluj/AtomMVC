@@ -19,6 +19,11 @@ namespace Domain
         public virtual string Name { get; set; }
 
         /// <summary>
+        /// 图标路径
+        /// </summary>
+        public virtual string Icon { get; set; }
+
+        /// <summary>
         /// 路径
         /// </summary>
         public virtual string Url { get; set; }

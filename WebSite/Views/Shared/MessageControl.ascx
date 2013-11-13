@@ -38,6 +38,52 @@
 </div>
 </aside>
 
+<!-- loading 画面 -->
+<div id="loading-div-background">
+    <div id="loading-div" class="ui-corner-all" >
+      <img style="height:80px;margin:30px;" src="../../assets/img/loadingGIF.gif" alt="读取中,请稍候.."/>
+     </div>
+</div>
+
+<style>
+#loading-div-background 
+    {
+        display:none;
+        position:fixed;
+        top:0;
+        left:0;
+        background:black;
+        width:100%;
+        height:100%;
+     }
+</style>
+<style>
+    #loading-div
+    {
+         background-color: black;
+         text-align:center;
+         position:absolute;
+         left: 50%;
+         top: 50%;
+         margin-left:-150px;
+         margin-top: -100px;
+     }
+</style>
+<script src="../../assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#loading-div-background").css({ opacity: 0.8 });
+    });
+
+    function ShowProgressAnimation() {
+        $("#loading-div-background").show();
+    }
+
+    function HideProgressAnimation() {
+        $("#loading-div-background").hide();
+    }
+
+    </script>
 <script type="text/javascript">
     function showSuccess(msg) {
 
@@ -49,5 +95,12 @@
     function showError(msg) {
         $(".errorMessage").html(msg);
         $(".error").modal("show");
+    }
+
+    function showLoading() {
+        $(".loading").modal("show");
+    }
+    function hideLoading() {
+        $(".loading").modal("hide");
     }
 </script>

@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ViewModel>
-	<Direct value="Email" name="内部邮件" >
+	<Direct value="Email" name="内部邮件" icon="../../assets/img/icons/stuttgart-icon-pack/32x32/email.png" >
     <URL value="/Email/NewEmail" name="写邮件"/>
 		<URL value="/Email/Inbox" name="收件箱"/>
     <URL value="/Email/Sentbox" name="已发送"/>
 	</Direct>
-  <Direct value="Task" name="任务管理" >
+  <Direct value="Task" name="任务管理"  icon="../../assets/img/icons/stuttgart-icon-pack/32x32/order.png">
     <URL value="/Task/NewTask" name="分配任务"/>
     <URL value="/Task/MyTask" name="我的任务"/>
     <URL value="/Task/AssignedTask" name="我分配的任务"/>
   </Direct>
-  <Direct value="Apply" name="申请审批" >
+  <Direct value="Apply" name="申请审批"  icon="../../assets/img/icons/stuttgart-icon-pack/32x32/process.png">
     <URL value="/Apply/NewApply" name="提交申请"/>
     <URL value="/Apply/MyApply" name="我的申请"/>
     <URL value="/Apply/MyCheck" name="我的审批"/>
   </Direct>
-  <Direct value="DocPass" name="公文传阅" >
+  <Direct value="DocPass" name="公文传阅"  icon="../../assets/img/icons/stuttgart-icon-pack/32x32/communication.png">
     <URL value="/DocPass/NewPass" name="添加公文传阅"/>
     <URL value="/DocPass/MyDoc" name="我发起的传阅"/>
     <URL value="/DocPass/MyPass" name="我的传阅"/>
   </Direct>
-  <Direct value="Custom" name="客户关系管理" >
+  <Direct value="Custom" name="客户关系管理"  icon="../../assets/img/icons/stuttgart-icon-pack/32x32/customers.png">
     <URL value="/Custom/NewCustom" name="添加客户"/>
-    <URL value="/Custom/Custom" name="客户列表"/>
+    <URL value="/Custom/CustomList" name="客户列表"/>
     <URL value="/Custom/CustomBirthday" name="生日提醒"/>
     <URL value="/Custom/NewActive" name="添加客户维护业务"/>
     <URL value="/Custom/ActiveSummary" name="客户维护业务统计"/>

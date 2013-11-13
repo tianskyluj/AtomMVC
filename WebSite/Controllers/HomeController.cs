@@ -22,6 +22,9 @@ namespace WebSite.Controllers
         public IGlobalSettingManager GlobalSettingManager { get; set; }
         public IRegistrationManager RegistrationManager { get; set; }
         public ISystemModelManager SystemModelManager { get; set; }
+        public IEmailReceiveUserRelationManager EmailReceiveUserRelationManager { get; set; }
+        public ITaskReceiveUserRelationManager TaskReceiveUserRelationManager { get; set; }
+        public INoticeManager NoticeManager { get; set; }
 
         public ActionResult Index()
         {
@@ -43,6 +46,15 @@ namespace WebSite.Controllers
                     ViewData["registration"] = "签到";
                 else
                     ViewData["registration"] = "下班";
+
+                UserInfo user = UserInfoManager.GetUserSession();
+
+                ViewData["EmailReceiveUserRelation"] = EmailReceiveUserRelationManager.LoadAll().Where(f => f.ReceiveUser.ID == user.ID).Take(5);
+                ViewData["TaskReceiveUserRelation"] = TaskReceiveUserRelationManager.LoadAll().Where(f => f.ReceiveUser.ID == user.ID).Take(5);
+                ViewData["Notice"] = NoticeManager.LoadAll().Where(f=>f.ReceiveUser.ID == user.ID);
+                ViewData["MyEmailCount"] = ((IEnumerable<EmailReceiveUserRelation>)ViewData["EmailReceiveUserRelation"]).Count();
+                ViewData["MyTaskCount"] = ((IEnumerable<TaskReceiveUserRelation>)ViewData["TaskReceiveUserRelation"]).Count();
+                ViewData["NoticeCount"] = ((IEnumerable<Notice>)ViewData["Notice"]).Count();
 
                 return View();
             }

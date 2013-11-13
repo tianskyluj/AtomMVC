@@ -37,6 +37,9 @@ namespace WebSite
             this.LoadTaskLevel();
             this.LoadTaskState();
             this.LoadApplyType();
+            this.LoadCustomType();
+            this.LoadMaintainMethod();
+            this.LoadMaintainType();
         }
 
         /// <summary>
@@ -105,12 +108,12 @@ namespace WebSite
                 for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
                 {
                     int DirectId = xmlDS.Tables[0].Rows[i]["Direct_Id"].ToInt();
-                    Guid guid = manger.FastAddSystemModel(new Guid(), "", xmlDS.Tables[0].Rows[i]["Name"].ToString(), i);
+                    Guid guid = manger.FastAddSystemModel(new Guid(), "", xmlDS.Tables[0].Rows[i]["Name"].ToString(), i, xmlDS.Tables[0].Rows[i]["Icon"].ToString());
                     // 生成页面
                     DataRow[] drs = xmlDS.Tables[1].Select("Direct_Id=" + DirectId.ToStr());
                     for (int j = 0; j < drs.Length; j++)
                     {
-                        manger.FastAddSystemModel(guid, drs[j]["value"].ToString(), drs[j]["Name"].ToString(), j);
+                        manger.FastAddSystemModel(guid, drs[j]["value"].ToString(), drs[j]["Name"].ToString(), j,"");
                     }
                 }
             }
@@ -192,6 +195,87 @@ namespace WebSite
                     entity.ID = Guid.NewGuid();
                     entity.ApplyTypeName = xmlDS.Tables[0].Rows[i]["name"].ToStr();
                     entity.Flow = new Domain.Flow();
+                    entity.OrderIndex = xmlDS.Tables[0].Rows[i]["orderIndex"].ToInt();
+                    manger.Save(entity);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 按config文件夹中的CustomType.xml配置文件加任务等级
+        /// </summary>
+        private void LoadCustomType()
+        {
+            string xmlPath = "~/Config/CustomType.xml";
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            ICustomTypeManager manger = (ICustomTypeManager)cxt.GetObject("Manager.CustomType");
+            IList<Domain.CustomType> customTypeList = manger.LoadAll();
+            if (customTypeList.Count == 0)
+            {
+                //manger.LoadSystemModelWithXML();
+                // 把xml文件转换成dataSet
+                Atom.Common.XML.XMLProcess xmlProcess = new Atom.Common.XML.XMLProcess();
+                DataSet xmlDS = xmlProcess.GetDataSetByXml(xmlPath);
+                // 生成目录
+                for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
+                {
+                    Domain.CustomType entity = new Domain.CustomType();
+                    entity.ID = Guid.NewGuid();
+                    entity.TypeName = xmlDS.Tables[0].Rows[i]["name"].ToStr();
+                    entity.OrderIndex = xmlDS.Tables[0].Rows[i]["orderIndex"].ToInt();
+                    manger.Save(entity);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 按config文件夹中的MaintainMethod.xml配置文件加任务等级
+        /// </summary>
+        private void LoadMaintainMethod()
+        {
+            string xmlPath = "~/Config/MaintainMethod.xml";
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            IMaintainMethodManager manger = (IMaintainMethodManager)cxt.GetObject("Manager.MaintainMethod");
+            IList<Domain.MaintainMethod> maintainMethodList = manger.LoadAll();
+            if (maintainMethodList.Count == 0)
+            {
+                //manger.LoadSystemModelWithXML();
+                // 把xml文件转换成dataSet
+                Atom.Common.XML.XMLProcess xmlProcess = new Atom.Common.XML.XMLProcess();
+                DataSet xmlDS = xmlProcess.GetDataSetByXml(xmlPath);
+                // 生成目录
+                for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
+                {
+                    Domain.MaintainMethod entity = new Domain.MaintainMethod();
+                    entity.ID = Guid.NewGuid();
+                    entity.MethodName = xmlDS.Tables[0].Rows[i]["name"].ToStr();
+                    entity.OrderIndex = xmlDS.Tables[0].Rows[i]["orderIndex"].ToInt();
+                    manger.Save(entity);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 按config文件夹中的MaintainMethod.xml配置文件加任务等级
+        /// </summary>
+        private void LoadMaintainType()
+        {
+            string xmlPath = "~/Config/MaintainType.xml";
+            IApplicationContext cxt = ContextRegistry.GetContext();
+            IMaintainTypeManager manger = (IMaintainTypeManager)cxt.GetObject("Manager.MaintainType");
+            IList<Domain.MaintainType> maintainTypeList = manger.LoadAll();
+            if (maintainTypeList.Count == 0)
+            {
+                //manger.LoadSystemModelWithXML();
+                // 把xml文件转换成dataSet
+                Atom.Common.XML.XMLProcess xmlProcess = new Atom.Common.XML.XMLProcess();
+                DataSet xmlDS = xmlProcess.GetDataSetByXml(xmlPath);
+                // 生成目录
+                for (int i = 0; i < xmlDS.Tables[0].Rows.Count; i++)
+                {
+                    Domain.MaintainType entity = new Domain.MaintainType();
+                    entity.ID = Guid.NewGuid();
+                    entity.TypeName = xmlDS.Tables[0].Rows[i]["name"].ToStr();
                     entity.OrderIndex = xmlDS.Tables[0].Rows[i]["orderIndex"].ToInt();
                     manger.Save(entity);
                 }

@@ -8,6 +8,9 @@
 		<property name="GlobalSettingManager" ref="Manager.GlobalSetting"/>
 		<property name="RegistrationManager" ref="Manager.Registration"/>
     <property name="SystemModelManager" ref="Manager.SystemModel"/>
+    <property name="EmailReceiveUserRelationManager" ref="Manager.EmailReceiveUserRelation"/>
+    <property name="TaskReceiveUserRelationManager" ref="Manager.TaskReceiveUserRelation"/>
+    <property name="NoticeManager" ref="Manager.Notice"/>
 	</object>
 
 	<object type="WebSite.Controllers.UserInfoController, WebSite" singleton="false" >
@@ -79,6 +82,7 @@
     <property name="EmailManager" ref="Manager.Email"/>
     <property name="UserInfoManager" ref="Manager.UserInfo"/>
     <property name="EmailReceiveUserRelationManager" ref="Manager.EmailReceiveUserRelation"/>
+    <property name="UploadFileManager" ref="Manager.UploadFile"/>
   </object>
 
   <object type="WebSite.Controllers.TaskController, WebSite" singleton="false" >
@@ -102,6 +106,19 @@
     <property name="UserInfoManager" ref="Manager.UserInfo"/>
     <property name="DocPassManager" ref="Manager.DocPass"/>
     <property name="DocReceiveUserRelationManager" ref="Manager.DocReceiveUserRelation"/>
+  </object>
+
+  <object type="WebSite.Controllers.CustomController, WebSite" singleton="false" >
+    <property name="CustomManager" ref="Manager.Custom"/>
+    <property name="CustomTypeManager" ref="Manager.CustomType"/>
+    <property name="UserInfoManager" ref="Manager.UserInfo"/>
+    <property name="CustomMaintainManager" ref="Manager.CustomMaintain"/>
+    <property name="MaintainMethodManager" ref="Manager.MaintainMethod"/>
+    <property name="MaintainTypeManager" ref="Manager.MaintainType"/>
+  </object>
+
+  <object type="WebSite.Controllers.UploadFileController, WebSite" singleton="false" >
+    <property name="UploadFileManager" ref="Manager.UploadFile"/>
   </object>
 
 	<object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />

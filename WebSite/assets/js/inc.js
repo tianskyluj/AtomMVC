@@ -1,7 +1,11 @@
 ﻿
 // 跳转至其他模块
 function redirect(url) {
-    $('#mainContent').load(url);
+    ShowProgressAnimation();
+    $('#mainContent').load(
+    url, 
+    function () {HideProgressAnimation();}
+    );
 }
 // 获取多选下拉列表的值的字符串，形如：1，2，3，4 
 function getMultiSelectValue (obj){ 

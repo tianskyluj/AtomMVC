@@ -273,5 +273,21 @@
     </property>
   </object>
 
+  <object id="Manager.Notice" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.NoticeManager, Service">
+        <property name="CurrentRepository" ref="Repository.Notice"/>
+      </object>
+    </property>
+  </object>
+
+  <object id="Manager.UploadFile" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="Service.Implement.UploadFileManager, Service">
+        <property name="CurrentRepository" ref="Repository.UploadFile"/>
+      </object>
+    </property>
+  </object>
+
 </objects>
 

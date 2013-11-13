@@ -135,5 +135,13 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
+  <object id="Repository.Notice" type="Dao.Implement.NoticeRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+  <object id="Repository.UploadFile" type="Dao.Implement.UploadFileRepository, Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
 </objects>
 

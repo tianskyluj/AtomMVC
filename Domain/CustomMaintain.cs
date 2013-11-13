@@ -41,7 +41,7 @@ namespace Domain
         /// <summary>
         /// 维系结果
         /// </summary>
-        public virtual string result { get; set; }
+        public virtual string Result { get; set; }
 
         /// <summary>
         /// 创建人

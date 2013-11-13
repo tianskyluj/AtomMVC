@@ -13,6 +13,7 @@ namespace WebSite.Controllers
         public IEmailManager EmailManager { get; set; }
         public IUserInfoManager UserInfoManager { get; set; }
         public IEmailReceiveUserRelationManager EmailReceiveUserRelationManager { get; set; }
+        public IUploadFileManager UploadFileManager { get; set; }
 
         //
         // GET: /SystemModel/
@@ -44,7 +45,7 @@ namespace WebSite.Controllers
         /// <param name="globalModel"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult SaveEmail(Email email, string receiveUsers)
+        public ActionResult SaveEmail(Email email, string receiveUsers, string uploadString)
         {
             if (email.ID == new Guid())
                 email.ID = Guid.NewGuid();
@@ -70,7 +71,17 @@ namespace WebSite.Controllers
                 EmailReceiveUserRelationManager.Save(entity);
             }
 
-            return Content("1");
+            // 设置附件的BaseId 
+            string[] uploadIDs = uploadString.Trim(',').Split(',');
+            for (int i = 0; i < uploadIDs.Length; i++)
+            {
+                Guid uploadID = new Guid(uploadIDs[i].ToString());
+                UploadFile uploadFile = UploadFileManager.Get(uploadID);
+                uploadFile.BaseID = email.ID;
+                UploadFileManager.Update(uploadFile);
+            }
+
+                return Content("1");
         }
 
         /// <summary>
@@ -96,6 +107,19 @@ namespace WebSite.Controllers
         {
             //return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet<City>(CityManager.LoadAll().FirstOrDefault(f => f.ID == city.ID)));
             return Content("1");
+        }
+
+        /// <summary>
+        /// 上传附件
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase qqfile)
+        {
+            //return Json(new { success = true });
+            UploadFile uploadFile = UploadFileManager.UploadFile(Request,qqfile.FileName, UserInfoManager.GetUserSession());
+            //return Json(new { success = true });
+            return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet<UploadFile>(uploadFile));
         }
     }
 }

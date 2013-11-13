@@ -77,6 +77,8 @@
     <Compile Include="CustomMaintain.cs" />
     <Compile Include="MaintainType.cs" />
     <Compile Include="MaintainMethod.cs" />
+    <Compile Include="Notice.cs" />
+    <Compile Include="UploadFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Flow.hbm.xml">
@@ -213,6 +215,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomMaintain.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Notice.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UploadFile.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

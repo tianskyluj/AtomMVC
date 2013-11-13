@@ -84,6 +84,8 @@
     <Compile Include="Implement\CumtomMaintainManager.cs" />
     <Compile Include="Implement\MaintainTypeManager.cs" />
     <Compile Include="Implement\MaintainMethodManager.cs" />
+    <Compile Include="Implement\NoticeManager.cs" />
+    <Compile Include="Implement\UploadFileManager.cs" />
     <Compile Include="IRegistrationManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -120,6 +122,8 @@
     <Compile Include="ICustomMaintainManager.cs" />
     <Compile Include="IMaintainTypeManager.cs" />
     <Compile Include="IMaintainMethodManager.cs" />
+    <Compile Include="INoticeManager.cs" />
+    <Compile Include="IUploadFileManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

@@ -19,6 +19,7 @@
     <link href="../assets/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/css/prettify.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/css/bootstrap-tree.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/fineuploader.min.css" rel="stylesheet"/>
     <style>
         #g1, #g2, #g3
         {

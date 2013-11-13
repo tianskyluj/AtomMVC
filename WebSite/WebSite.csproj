@@ -121,6 +121,8 @@
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\ApplyController.cs" />
     <Compile Include="Controllers\DocPassController.cs" />
+    <Compile Include="Controllers\CustomController.cs" />
+    <Compile Include="Controllers\UploadFileController.cs" />
     <Compile Include="Core\LocalizationHelpers.cs" />
     <Compile Include="Core\UserPathFckProvider.cs" />
     <Compile Include="Global.asax.cs">
@@ -140,7 +142,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Config\Controllers.xml" />
+    <EmbeddedResource Include="Config\Controllers.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Content Include="assets\css\bootstrap-multiselect.css" />
     <Content Include="assets\css\bootstrap-tree.min.css" />
     <Content Include="assets\css\docs.css" />
@@ -269,6 +273,8 @@
     <Content Include="assets\js\jquery-validation\jquery.validate.js" />
     <Content Include="assets\js\jquery.avgrund.js\js\jquery.avgrund.js" />
     <Content Include="assets\js\jquery.avgrund.js\style\avgrund.css" />
+    <Content Include="assets\js\jquery.fineuploader-3.0.min.js" />
+    <Content Include="assets\js\jquery.fineuploader-3.9.1.min.js" />
     <Content Include="assets\js\jquery.maskedinput\dist\jquery.maskedinput.min.js" />
     <Content Include="assets\js\jqvmap\jqvmap\data\jquery.vmap.sampledata.js" />
     <Content Include="assets\js\jqvmap\jqvmap\jquery.vmap.min.js" />
@@ -298,6 +304,15 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\ApplyType.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CustomType.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\MaintainMethod.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\MaintainType.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\Logon.css" />
@@ -851,6 +866,10 @@
     <Content Include="Images\user_top_l.gif" />
     <Content Include="Images\user_top_r.gif" />
     <Content Include="Scripts\Account\Index.js" />
+    <Content Include="Scripts\Custom\CustomBirthDay.js" />
+    <Content Include="Scripts\Custom\NewActive.js" />
+    <Content Include="Scripts\Custom\ActiveSummary.js" />
+    <Content Include="Scripts\Custom\ActiveWarnning.js" />
     <Content Include="Scripts\Email\NewEmail.js" />
     <Content Include="Scripts\Email\Inbox.js" />
     <Content Include="Scripts\Email\Sentbox.js" />
@@ -872,11 +891,24 @@
     <Content Include="Scripts\DocPass\MyDoc.js" />
     <Content Include="Scripts\DocPass\MyPass.js" />
     <Content Include="Scripts\DocPass\NewDocPass.js" />
+    <Content Include="Scripts\Custom\CustomList.js" />
+    <Content Include="Scripts\Custom\NewCustom.js" />
+    <Content Include="Scripts\CustomMaintain\CustomBirthDay.js" />
+    <Content Include="Scripts\CustomMaintain\CustomList.js" />
+    <Content Include="Scripts\CustomMaintain\NewCustom.js" />
+    <Content Include="Upload\Avatar\1_avatar.txt" />
+    <Content Include="Upload\Avatar\DefaultAvatar.jpg" />
     <Content Include="Views\Account\Index.aspx" />
     <Content Include="Views\Article\Admin.aspx" />
     <Content Include="Views\Article\Get.aspx" />
     <Content Include="Views\Article\View.aspx" />
     <Content Include="Views\Category\List.aspx" />
+    <Content Include="Views\Custom\CustomList.aspx" />
+    <Content Include="Views\Custom\NewCustom.aspx" />
+    <Content Include="Views\Custom\CustomBirthday.aspx" />
+    <Content Include="Views\Custom\NewActive.aspx" />
+    <Content Include="Views\Custom\ActiveSummary.aspx" />
+    <Content Include="Views\Custom\ActiveWarnning.aspx" />
     <Content Include="Views\Email\NewEmail.aspx" />
     <Content Include="Views\Email\Inbox.aspx" />
     <Content Include="Views\Email\Sentbox.aspx" />

@@ -30,4 +30,5 @@
     <script src="../../assets/js/inc.js"></script>
     <script src="../../assets/js/bootstrap-tree.js"></script>
     <script src="../../assets/js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../assets/js/jquery.fineuploader-3.9.1.min.js"></script>
     

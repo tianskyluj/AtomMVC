@@ -34,6 +34,10 @@
             showError('请选择收件人');
             return false;
         }
+        var attach = '';
+        $('.qq-upload-delete').each(function () {
+            attach = attach + $(this).attr('id') + ',';
+        });
         $.post(
                 '/Email/SaveEmail',                                               // 修改表格名称
                 {
@@ -41,7 +45,8 @@
                 "Content": $('#Content').val(),
                 "IsRead": false,
                 "IsDeleteFromOutBox": false,
-                "receiveUsers": getMulitiSelectValue($('#sel_receiveUser'))
+                "receiveUsers": getMulitiSelectValue($('#sel_receiveUser')),
+                "uploadString": attach
             },
                 function (result) { if (result == "1") { showSuccess("操作成功"); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
         );
@@ -53,4 +58,33 @@
         initMulitiSelect($('#sel_receiveUser'));
         setMulitiSelectTitle($('#sel_receiveUser'), '请选择收件人 ');
     });
+
+    /// 这里控制附件上传
+
+    $('#jquery-wrapped-fine-uploader').fineUploader({
+        request: {
+            endpoint: '/Email/Upload'
+        },
+        callbacks: {
+            onComplete: function (id, fileName, responseJSON) {
+                $('.qq-upload-delete').each(function () { $(this).html('删除'); });
+                $('.qq-upload-list').children("li:last-child").children('.qq-upload-delete').attr('id', responseJSON['ID'])
+                $('.qq-upload-delete').click(function () {
+                    alert($(this).attr('id'));
+                    var id = $(this).attr('id');
+                    $.post(
+                            '/UploadFile/Delete',                                               // 修改表格名称
+                            {
+                            "ID": $(this).attr('id')
+                        },
+                            function (result) { if (result == "1") { $('#' + id).parent().remove(); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
+                    );
+                });
+            }
+        }
+    });
+
+    $('.qq-upload-button').children().eq(0).html("上传附件");
+    $('.qq-drop-processing').children().eq(0).html("拖拽文件至此上传");
+
 });

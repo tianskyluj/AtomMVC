@@ -106,6 +106,8 @@
     <Compile Include="Implement\CustomMaintainRepository.cs" />
     <Compile Include="Implement\MaintainTypeRepository.cs" />
     <Compile Include="Implement\MaintainMethodRepository.cs" />
+    <Compile Include="Implement\NoticeRepository.cs" />
+    <Compile Include="Implement\UploadFileRepository.cs" />
     <Compile Include="IRepository`1.cs" />
     <Compile Include="IUserInfoRepository.cs" />
     <Compile Include="RepositoryBase`1.cs" />
@@ -142,6 +144,8 @@
     <Compile Include="ICustomMaintainRepository.cs" />
     <Compile Include="IMaintainTypeRepository.cs" />
     <Compile Include="IMaintainMethodRepository.cs" />
+    <Compile Include="INoticeRepository.cs" />
+    <Compile Include="IUploadFileRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
