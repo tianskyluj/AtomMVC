@@ -18,7 +18,7 @@ namespace WebSite.Controllers
         //
         // GET: /SystemModel/
 
-        public ActionResult NewEmail()
+        public ActionResult NewEmail(string replyEmailID)
         {
             ViewData["UserInfo"] = UserInfoManager.LoadAll();
             return View();
@@ -70,18 +70,20 @@ namespace WebSite.Controllers
                 {}
                 EmailReceiveUserRelationManager.Save(entity);
             }
-
-            // 设置附件的BaseId 
-            string[] uploadIDs = uploadString.Trim(',').Split(',');
-            for (int i = 0; i < uploadIDs.Length; i++)
+            if (uploadString.Trim().Length > 0)
             {
-                Guid uploadID = new Guid(uploadIDs[i].ToString());
-                UploadFile uploadFile = UploadFileManager.Get(uploadID);
-                uploadFile.BaseID = email.ID;
-                UploadFileManager.Update(uploadFile);
+                // 设置附件的BaseId 
+                string[] uploadIDs = uploadString.Trim(',').Split(',');
+                for (int i = 0; i < uploadIDs.Length; i++)
+                {
+                    Guid uploadID = new Guid(uploadIDs[i].ToString());
+                    UploadFile uploadFile = UploadFileManager.Get(uploadID);
+                    uploadFile.BaseID = email.ID;
+                    UploadFileManager.Update(uploadFile);
+                }
             }
 
-                return Content("1");
+            return Content("1");
         }
 
         /// <summary>
@@ -105,8 +107,20 @@ namespace WebSite.Controllers
         [HttpPost]
         public ActionResult UpdateEmail(Email email)
         {
-            //return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet<City>(CityManager.LoadAll().FirstOrDefault(f => f.ID == city.ID)));
-            return Content("1");
+            Email entity = EmailManager.LoadAll().FirstOrDefault(f => f.ID == email.ID);
+            return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet<Email>(entity));
+        }
+
+        /// <summary>
+        /// 修改模块，返回待修改模块的相关数据
+        /// </summary>
+        /// <param name="globalModel"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GetReveiveUser(Email email)
+        {
+            IList<EmailReceiveUserRelation> listEmailReveive =  EmailReceiveUserRelationManager.LoadAll().Where(f=>f.Email.ID==email.ID).ToList();
+            return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet(listEmailReveive));
         }
 
         /// <summary>
@@ -117,7 +131,7 @@ namespace WebSite.Controllers
         public ActionResult Upload(HttpPostedFileBase qqfile)
         {
             //return Json(new { success = true });
-            UploadFile uploadFile = UploadFileManager.UploadFile(Request,qqfile.FileName, UserInfoManager.GetUserSession());
+            UploadFile uploadFile = UploadFileManager.UploadFile(qqfile, UserInfoManager.GetUserSession());
             //return Json(new { success = true });
             return Content(Atom.Common.JsonHelper.GenerateStringByJsonDotNet<UploadFile>(uploadFile));
         }

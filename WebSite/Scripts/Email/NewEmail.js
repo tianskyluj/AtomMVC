@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $('#email_edit').wysihtml5({
+    $('#content_edit').wysihtml5({
         "stylesheets": ["/templates/social/assets/js/bootstrap-wysihtml5/lib/css/wysiwyg-color.css"]
     });
 
@@ -38,17 +38,18 @@
         $('.qq-upload-delete').each(function () {
             attach = attach + $(this).attr('id') + ',';
         });
+
         $.post(
                 '/Email/SaveEmail',                                               // 修改表格名称
                 {
                 "Title": $('#title_edit').val().trim(),
-                "Content": $('#Content').val(),
+                "Content": $('#content_edit').val(),
                 "IsRead": false,
                 "IsDeleteFromOutBox": false,
                 "receiveUsers": getMulitiSelectValue($('#sel_receiveUser')),
                 "uploadString": attach
             },
-                function (result) { if (result == "1") { showSuccess("操作成功"); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
+                function (result) { if (result == "1") { redirect("/Email/Sentbox"); showSuccess("操作成功"); } else { showError("出错了，请稍后再试或者联系系统管理员") } }
         );
     });
 

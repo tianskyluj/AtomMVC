@@ -13,7 +13,7 @@
     <div class="row-fluid">
         <div class="span12">
             <div class="social-box">
-                <div class="header">
+                <%--<div class="header">
                     <div class="btn-group hidden-phone">
                         <a class="btn btn-primary" id="add-row-province" href="#"><i class="icon-plus"></i>添加
                         </a><a class="btn btn-danger disabled" href="#" id="delete-row-province"><i class="icon-trash">
@@ -37,7 +37,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 <div class="body">
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
                         id="taskTable">

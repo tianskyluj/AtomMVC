@@ -226,4 +226,66 @@ $(function () {
             $("#delete-row-inbox").removeClass("disabled");                  // 修改表格名称
         }
     });
+
+    /// 查看邮件
+    $('.detail').click(function () {                                   // 修改表格名称
+        GetEmailDetail($(this).attr('value'));
+        GetAttach($(this).attr('value'));
+        $("#detail").modal("show");                                // 修改表格名称
+    });
+
+    // 分页后加载方法
+    $('.pagination').click(function () {
+        $('.detail').click(function () {                                   // 修改表格名称
+            GetEmailDetail($(this).attr('value'));
+            GetAttach($(this).attr('value'));
+            $("#detail").modal("show");                                // 修改表格名称
+        });
+    });
 });
+
+// 获取邮件详细
+function GetEmailDetail(emailID) {
+    $.post(
+            '/Email/UpdateEmail',                                               // 修改表格名称
+            {
+            "ID": emailID
+        },
+            function (result) {
+                var entity = eval("(" + result + ")");
+                $('#title_detail').html(entity.Title);
+                $('#sendUser_detail').html(entity.SendUser.Name);
+                $('#content_detail').html(entity.Content);
+            }
+        );
+            $.post(
+            '/Email/GetReveiveUser',                                               // 修改表格名称
+            {
+            "ID": emailID
+            },
+            function (result) {
+                var entity = eval("(" + result + ")");
+                $('#receive_detail').empty();
+                for (var i = 0; i < entity.length; i++) {
+                    $('#receive_detail').append(entity[i].ReceiveUser.Name + ";");
+                }
+            }
+        );
+}
+
+// 获取邮件附件
+function GetAttach(emailID) {
+    $.post(
+            '/UploadFile/GetFileWithBaseID',                                               // 修改表格名称
+            {
+            "baseID": emailID
+        },
+            function (result) {
+                var entity = eval("(" + result + ")");
+                $('#attach').empty();
+                for (var i = 0; i < entity.length; i++) {
+                    $('#attach').append("<tr><td><a target='_blank' class='downLoadFile' href='/UploadFile/DownLoadFile/" + entity[i].ID + "' >" + entity[i].FileName + "</a></td></tr>");
+                }
+            }
+        );
+}

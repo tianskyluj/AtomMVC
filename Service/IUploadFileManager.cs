@@ -13,6 +13,6 @@ namespace Service
         /// 上传文件
         /// </summary>
         /// <returns></returns>
-        UploadFile UploadFile(HttpRequestBase request, string qqfile, UserInfo user);
+        UploadFile UploadFile(HttpPostedFileBase request, UserInfo user);
     }
 }

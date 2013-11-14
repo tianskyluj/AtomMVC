@@ -15,7 +15,7 @@ namespace Service.Implement
         /// 上传文件
         /// </summary>
         /// <returns></returns>
-        public UploadFile UploadFile(HttpRequestBase request,string qqfile,UserInfo user)
+        public UploadFile UploadFile(HttpPostedFileBase request, UserInfo user)
         {
             string fileURL = "";
             fileURL = Atom.Common.inc.getApplicationPath() + "/Upload/Files/" + user.Account.ToString()+"/"+DateTime.Now.ToShortDateString()+"/"+DateTime.Now.ToShortTimeString().Replace(":","");
@@ -23,19 +23,13 @@ namespace Service.Implement
             {
                 Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath(fileURL));
             }
-            using (var inputStream = request.InputStream)
-            {
-                using (var flieStream = new System.IO.FileStream(System.Web.HttpContext.Current.Server.MapPath(fileURL+"/" + qqfile), System.IO.FileMode.Create))
-                {
-                    inputStream.CopyTo(flieStream);
-                }
-            }
-            
+            request.SaveAs(System.Web.HttpContext.Current.Server.MapPath(fileURL) + "/" + request.FileName);
+
             UploadFile entity = new UploadFile();
             entity.ID = Guid.NewGuid();
             entity.BaseID = new Guid();
-            entity.FileName = qqfile;
-            entity.FileURL = fileURL + "/" + qqfile;
+            entity.FileName = request.FileName;
+            entity.FileURL = fileURL + "/" + request.FileName;
             entity.FileType = "";
             entity.CreateUser = user;
             entity.CreateTime = DateTime.Now;

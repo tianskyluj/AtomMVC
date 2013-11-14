@@ -29,10 +29,9 @@
                             </select>
                         </div>
                         <div class="controls">
-                            <textarea id="email_edit" placeholder="输入邮件正文 ..." class="span9" style="height: 150px"> </textarea>
+                            <textarea id="content_edit" placeholder="输入邮件正文 ..." class="span9" style="height: 150px"> </textarea>
                         </div>
                         <div class="controls">
-                            
                             <div id="jquery-wrapped-fine-uploader" ></div>
                         </div>
                     </div>
